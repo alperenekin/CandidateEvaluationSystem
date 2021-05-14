@@ -1,11 +1,27 @@
 package com.FinalProject.model;
 
+import com.FinalProject.model.States.BaseState;
+
 public class Candidate {
     private String name;
     private String surname;
+    private BaseState applicationState;
     private int softSkills;
     private int technicalSkills;
     private int compatibleness;
+
+    public Candidate(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public BaseState getApplicationState() {
+        return applicationState;
+    }
+
+    public void setApplicationState(BaseState applicationState) {
+        this.applicationState = applicationState;
+    }
 
     public String getName() {
         return name;
@@ -13,11 +29,6 @@ public class Candidate {
 
     public String getSurname() {
         return surname;
-    }
-
-    public Candidate(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
     }
 
     public int getSoftSkills() {

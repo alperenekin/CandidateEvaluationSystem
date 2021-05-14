@@ -2,10 +2,10 @@ package com.FinalProject.model.Employees;
 
 import com.FinalProject.model.ReviewResult;
 
-public class HumanResourceAssistant extends IEmployee { //Should make a seperate class HumanResource maybe
+public class ProjectManager extends IEmployee{
     private IEmployee successor;
 
-    public HumanResourceAssistant(IEmployee successor) {
+    public ProjectManager(IEmployee successor) {
         this.successor = successor;
     }
 
