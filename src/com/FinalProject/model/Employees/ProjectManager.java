@@ -3,10 +3,9 @@ package com.FinalProject.model.Employees;
 import com.FinalProject.model.ReviewResult;
 
 public class ProjectManager extends IEmployee{
-    private IEmployee successor;
 
-    public ProjectManager(IEmployee successor) {
-        this.successor = successor;
+    public ProjectManager(String name, String surname) {
+        super(name, surname);
     }
 
     @Override
