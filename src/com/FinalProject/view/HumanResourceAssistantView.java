@@ -1,11 +1,14 @@
 package com.FinalProject.view;
 
+import com.FinalProject.model.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class HumanResourceAssistantView {
@@ -16,20 +19,23 @@ public class HumanResourceAssistantView {
     private JPanel rightPanel;
     private JPanel topPanel;
     private JPanel tablesPanel;
-    Container contentPane;
+    private Container contentPane;
+    private JButton rateCandidateButton;
+
+    //Tables
+    private CandidateTable pendingCandidates;
+    private CandidateTable approvedCandidates;
 
     private HumanResourceAssistant assistant;
     final int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width; // get size of the screen
-
-
-
 
     public HumanResourceAssistantView(HumanResourceAssistant assistant) {
         this.assistant = assistant;
         createPanels();
         createButtonsAndTexts();
         frame.setVisible(true);
-        createTable();
+        createPendingCandidateTable();
+        createApprovedCandidateTable();
     }
 
     private void createPanels(){
@@ -68,7 +74,7 @@ public class HumanResourceAssistantView {
         buttonPanel.add(button1);
         buttonPanel.add(Box.createVerticalStrut(10));
 
-        JButton rateCandidateButton = new JButton("<html>Rate A <br> Candidate</html>");
+        rateCandidateButton = new JButton("<html>Rate A <br> Candidate</html>");
         rateCandidateButton.setBackground(new Color(75, 0, 72)); //singleton
         rateCandidateButton.setForeground(Color.white);
         rateCandidateButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -80,53 +86,73 @@ public class HumanResourceAssistantView {
         contentPane.add(tablesPanel, BorderLayout.CENTER);
     }
 
-    private void createTable(){
-        DefaultTableModel tableModel = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                //all cells false
-                return false;
-            }
-        };
-        Vector<String> columnNames = new Vector<String>();
-        columnNames.add("Id ");
-        columnNames.add("Candidate Name");
-        columnNames.add("Candidate Point");
-        tableModel.setColumnIdentifiers(columnNames);
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-        //Candidate Table decoration
-        JTable candidateTable = new JTable(tableModel);
-        candidateTable.setDefaultRenderer(String.class, centerRenderer);
-        candidateTable.setFont(new Font("Tahome", Font.BOLD,15));
-        candidateTable.setForeground(Color.white);
-        candidateTable.getTableHeader().setBackground(new Color(234, 179, 179));
-        candidateTable.getTableHeader().setFont(new Font("Tahome", Font.BOLD,15));
-        candidateTable.setAutoCreateRowSorter(true);
-        candidateTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        candidateTable.getColumnModel().getColumn(0).setMaxWidth(50);
-        candidateTable.setBackground(new Color(234, 179, 179));
-        int width1 = (int) (screenWidth *(0.4));
-        int height1 = 10 * candidateTable.getRowHeight();
-        candidateTable.setPreferredScrollableViewportSize(new Dimension(width1, height1));
-        JScrollPane scrollPane1 = new JScrollPane(candidateTable);
+    private void createPendingCandidateTable(){
+        Vector<String> columns = new Vector<>();
+        columns.add("Id");
+        columns.add("Candidate Name");
+        columns.add("Candidate Rate");
 
-        JPanel lefTable = new JPanel(new BorderLayout());
-        lefTable.setBackground(new Color(244, 222, 251));
+        pendingCandidates = new CandidateTable(columns);
+        JScrollPane scrollPane1 = new JScrollPane(pendingCandidates);
+
+        JPanel leftPanel = new JPanel(new BorderLayout());
+        leftPanel.setBackground(new Color(244, 222, 251));
         JLabel tableText = new JLabel("PENDING CANDIDATES");
         tableText.setForeground(Color.DARK_GRAY);
         tableText.setFont(new Font("Serif", Font.BOLD, 30));
-        lefTable.add(tableText,BorderLayout.NORTH);
-        lefTable.add(scrollPane1,BorderLayout.SOUTH);
-        tablesPanel.add(lefTable);
+        leftPanel.add(tableText,BorderLayout.NORTH);
+        leftPanel.add(scrollPane1,BorderLayout.SOUTH);
+        tablesPanel.add(leftPanel);
+    }
 
-        for (int i = 0; i< 10; i++) {
-            Vector<String> vector = new Vector<String>();
-            vector.add(String.valueOf(i));
-            vector.add("Deneme" +i);
-            vector.add("Candidate" + i);
-            tableModel.insertRow(i, vector);
+    private void createApprovedCandidateTable(){ //NEEDS REFACTOR
+        Vector<String> columns = new Vector<>();
+        columns.add("Id");
+        columns.add("Candidate Name");
+        columns.add("Candidate Rate");
+
+        approvedCandidates = new CandidateTable(columns);
+        JScrollPane scrollPane1 = new JScrollPane(approvedCandidates);
+
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        rightPanel.setBackground(new Color(244, 222, 251));
+        JLabel tableText = new JLabel("APPROVED CANDIDATES");
+        tableText.setForeground(Color.DARK_GRAY);
+        tableText.setFont(new Font("Serif", Font.BOLD, 30));
+        rightPanel.add(tableText,BorderLayout.NORTH);
+        rightPanel.add(scrollPane1,BorderLayout.SOUTH);
+        tablesPanel.add(rightPanel);
+    }
+
+    public void addCandidateListToTable(CandidateTable table,ArrayList<Candidate> candidates){
+        for(Candidate candidate : candidates){
+            table.addRowToTable(candidate);
         }
+    }
+
+    public void addCandidateToTable(CandidateTable table, Candidate candidate){
+            table.addRowToTable(candidate);
+    }
+
+    public boolean removeRowFromTable(CandidateTable table,int row){
+        return table.removeRowFromTable(row);
+    }
+
+    public JButton getRateCandidateButton() {
+        return rateCandidateButton;
+    }
+
+    public void addListenerToButton(JButton button, ActionListener listener){
+        button.addActionListener(listener);
+    }
+
+
+    public CandidateTable getPendingCandidates() {
+        return pendingCandidates;
+    }
+
+    public CandidateTable getApprovedCandidates() {
+        return approvedCandidates;
     }
 
 
