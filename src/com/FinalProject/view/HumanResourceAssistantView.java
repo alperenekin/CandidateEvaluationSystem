@@ -155,5 +155,8 @@ public class HumanResourceAssistantView {
         return approvedCandidates;
     }
 
+    public JFrame getFrame() {
+        return frame;
+    }
 
 }

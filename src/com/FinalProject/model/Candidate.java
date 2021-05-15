@@ -1,6 +1,7 @@
 package com.FinalProject.model;
 
 import com.FinalProject.model.States.BaseState;
+import com.FinalProject.model.States.Starter;
 
 public class Candidate {
     private String name;
@@ -13,6 +14,11 @@ public class Candidate {
     public Candidate(String name, String surname) {
         this.name = name;
         this.surname = surname;
+        applicationState = Starter.instance();
+    }
+
+    public void changeState(){
+        applicationState.changeState(this);
     }
 
     public BaseState getApplicationState() {

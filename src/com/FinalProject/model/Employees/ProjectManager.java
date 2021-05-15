@@ -1,5 +1,6 @@
 package com.FinalProject.model.Employees;
 
+import com.FinalProject.model.Candidate;
 import com.FinalProject.model.ReviewResult;
 
 public class ProjectManager extends IEmployee{
@@ -9,7 +10,7 @@ public class ProjectManager extends IEmployee{
     }
 
     @Override
-    ReviewResult reviewCandidate(IEmployee employee) {
+    ReviewResult reviewCandidate(Candidate candidate) {
         return null;
     }
 }

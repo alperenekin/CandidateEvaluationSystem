@@ -15,6 +15,7 @@ public class Starter extends BaseState{ //beginning state for a candidate
 
     @Override
     public void changeState(Candidate candidate) {
+        System.out.println("Changed from starter to mid level");
         candidate.setApplicationState(MidLevel.instance());
     }
 }
