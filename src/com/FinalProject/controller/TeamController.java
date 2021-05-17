@@ -2,6 +2,7 @@ package com.FinalProject.controller;
 
 import com.FinalProject.model.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.States.Certain;
 import com.FinalProject.model.States.MidLevel;
 import com.FinalProject.view.DialogButton;
 import com.FinalProject.view.EmployeeDialogView;
@@ -55,8 +56,14 @@ public class TeamController {
             candidate = pendingCandidates.remove(result);
             EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame());
             HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
-            if(candidate.getApplicationState() == MidLevel.instance())
-            view.removeRowFromTable(view.getPendingCandidates(),result);
+            if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
+                view.removeRowFromTable(view.getPendingCandidates(),result);
+                approvedCandidates.add(candidate);
+                view.addCandidateToTable(view.getApprovedCandidates(),candidate);
+            }else{//If eliminated, candidate will be deleted from list
+                view.removeRowFromTable(view.getPendingCandidates(),result);
+                //Here maybe we can show something like eliminated in a pop up.
+            }
         }
     }
 

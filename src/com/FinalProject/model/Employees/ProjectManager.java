@@ -10,7 +10,16 @@ public class ProjectManager extends IEmployee{
     }
 
     @Override
-    ReviewResult reviewCandidate(Candidate candidate) {
+    public ReviewResult reviewCandidate(Candidate candidate) {
+        int technicalSkill = candidate.getTechnicalSkills();
+        int softSkill = candidate.getSoftSkills();
+        int compatibleness = candidate.getCompatibleness();
+        int avg = (technicalSkill+softSkill+compatibleness)/3;
+        if(avg > 6){
+            candidate.changeState();
+        }else{
+            System.out.println("This candidate is eleminated");
+        }
         return null;
     }
 }

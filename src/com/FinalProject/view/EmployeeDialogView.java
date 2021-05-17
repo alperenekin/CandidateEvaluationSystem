@@ -1,17 +1,18 @@
 package com.FinalProject.view;
 
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.Employees.IEmployee;
 
 import javax.swing.*;
 
 public class EmployeeDialogView {
     private DialogButton dialogButton;
-    private HumanResourceAssistant assistant;
+    private IEmployee employee;
 
     private JFrame frame;
 
-    public EmployeeDialogView(HumanResourceAssistant assistant, JFrame frame) {
-        this.assistant = assistant;
+    public EmployeeDialogView(IEmployee employee, JFrame frame) {
+        this.employee = employee;
         this.frame = frame;
 
     }

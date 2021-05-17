@@ -24,4 +24,8 @@ public class HumanResourceManager extends IEmployee {
         }
         return null;
     }
+
+    public IEmployee getSuccessor() {
+        return successor;
+    }
 }
