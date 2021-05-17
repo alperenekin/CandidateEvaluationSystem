@@ -6,7 +6,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class CandidateTable extends JTable {
@@ -33,14 +32,14 @@ public class CandidateTable extends JTable {
         //Candidate Table decoration
         this.setModel(tableModel);
         this.setDefaultRenderer(String.class, centerRenderer);
-        this.setFont(new Font("Tahome", Font.BOLD,15));
+        this.setFont(AppTheme.instance().bodyTextFont());
         this.setForeground(Color.white);
-        this.getTableHeader().setBackground(new Color(234, 179, 179));
-        this.getTableHeader().setFont(new Font("Tahome", Font.BOLD,15));
+        this.getTableHeader().setBackground(AppTheme.instance().tableBackgroundColor());
+        this.getTableHeader().setFont(AppTheme.instance().bodyTextFont());
         this.setAutoCreateRowSorter(true);
         this.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         this.getColumnModel().getColumn(0).setMaxWidth(50);
-        this.setBackground(new Color(234, 179, 179));
+        this.setBackground(AppTheme.instance().tableBackgroundColor());
         int width1 = (int) (screenWidth *(0.4));
         int height1 = 10 * this.getRowHeight();
         this.setPreferredScrollableViewportSize(new Dimension(width1, height1));

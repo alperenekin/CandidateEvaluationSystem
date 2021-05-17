@@ -2,6 +2,7 @@ package com.FinalProject.controller;
 
 import com.FinalProject.model.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.Employees.Team;
 import com.FinalProject.model.States.Certain;
 import com.FinalProject.model.States.MidLevel;
 import com.FinalProject.view.DialogButton;
@@ -14,15 +15,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TeamController {
-    private HumanResourceAssistant assistant;
+    private Team team;
     private TeamView view;
     private ArrayList<Candidate> pendingCandidates;
     private ArrayList<Candidate> approvedCandidates;
     private Candidate candidate;
 
 
-    public TeamController(HumanResourceAssistant assistant, TeamView view){
-        this.assistant = assistant;
+    public TeamController(Team team, TeamView view){
+        this.team = team;
         this.view = view;
         pendingCandidates = new ArrayList<>();
         approvedCandidates = new ArrayList<>();
@@ -31,7 +32,8 @@ public class TeamController {
         Candidate candidate3 = new Candidate("ahmet","yilmaz");
         pendingCandidates.add(candidate1); pendingCandidates.add(candidate2); pendingCandidates.add(candidate3);
         view.addCandidateListToTable(view.getPendingCandidates(),pendingCandidates);
-        view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener());
+        HumanResourceAssistant assistant = team.findAssistant();
+        view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener(assistant));
 
     }
 
@@ -49,7 +51,10 @@ public class TeamController {
     }
 
     class RateCandidateListener implements ActionListener{
-
+        HumanResourceAssistant assistant;
+        public RateCandidateListener(HumanResourceAssistant assistant){
+            this.assistant = assistant;
+        }
         @Override
         public void actionPerformed(ActionEvent e) {
             int result =  Integer.parseInt(showInputDialog());

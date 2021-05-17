@@ -20,12 +20,17 @@ public class DialogButton extends JDialog {
 
     public void fillDialogButton(){
         JLabel message = new JLabel(dialogMessage);
+        message.setFont(AppTheme.instance().headerTextSmall());
         JPanel panel = new JPanel();
+        panel.setBackground(AppTheme.instance().secondaryBackground());
+
         JPanel center = new JPanel(new FlowLayout());
         skill1 = new JTextField(2);
         skill2 = new JTextField(2);
         skill3 = new JTextField(2);
         confirmButton = new JButton("Confirm");
+        confirmButton.setBackground(AppTheme.instance().buttonColor());
+        confirmButton.setForeground(Color.white);
 
         panel.add(message, BorderLayout.NORTH);
         center.add(skill1);

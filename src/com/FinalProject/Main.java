@@ -5,6 +5,7 @@ import com.FinalProject.controller.TeamController;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.HumanResourceManager;
 import com.FinalProject.model.Employees.ProjectManager;
+import com.FinalProject.model.Employees.Team;
 import com.FinalProject.view.TeamView;
 
 import javax.swing.*;
@@ -19,8 +20,12 @@ public class Main {
                 ProjectManager manager = new ProjectManager("afas","12");
                 HumanResourceManager hrmanager = new HumanResourceManager(manager,"Ali","Yilmaz");
                 HumanResourceAssistant assistant = new HumanResourceAssistant(hrmanager,"Veli","Acar");
-                TeamView view = new TeamView(assistant);
-                TeamController controller = new TeamController(assistant,view);            }
+                Team team = new Team("Software Team");
+                team.addEmployee(manager);
+                team.addEmployee(hrmanager);
+                team.addEmployee(assistant);
+                TeamView view = new TeamView(team);
+                TeamController controller = new TeamController(team,view);            }
         });
 
     }

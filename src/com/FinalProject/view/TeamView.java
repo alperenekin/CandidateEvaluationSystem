@@ -2,6 +2,7 @@ package com.FinalProject.view;
 
 import com.FinalProject.model.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.Employees.Team;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -26,11 +27,11 @@ public class TeamView {
     private CandidateTable pendingCandidates;
     private CandidateTable approvedCandidates;
 
-    private HumanResourceAssistant assistant;
+    private Team team;
     final int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width; // get size of the screen
 
-    public TeamView(HumanResourceAssistant assistant) {
-        this.assistant = assistant;
+    public TeamView(Team team) {
+        this.team = team;
         createPanels();
         createButtonsAndTexts();
         frame.setVisible(true);
@@ -43,21 +44,22 @@ public class TeamView {
         contentPane  = frame.getContentPane();
 
         buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(1, 0, 72));
+        buttonPanel.setBackground(AppTheme.instance().mainBackGroundColor());
 
         rightPanel = new JPanel();
-        rightPanel.setBackground(Color.GREEN);
+        rightPanel.setBackground(Color.GREEN); //make this for team elements
 
         topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanel.setBackground(new Color(51, 41, 72));
+        topPanel.setBackground(AppTheme.instance().backupBackground());
 
         tablesPanel = new JPanel();
-        tablesPanel.setBackground(new Color(244, 222, 251));
+        tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
     }
 
     private void createButtonsAndTexts(){
         JLabel usernameLabel = new JLabel("Username:");
         usernameLabel.setForeground(Color.white);
+        HumanResourceAssistant assistant = team.findAssistant();
         JLabel nameSurname = new JLabel(assistant.getName() + " " + assistant.getSurname());
         nameSurname.setForeground(Color.white);
 
@@ -66,18 +68,18 @@ public class TeamView {
         topPanel.add(nameSurname);
 
         JButton button1 = new JButton("<html>Search Candidate <br> From List</html>"); //change button name
-        button1.setBackground(new Color(75, 0, 72)); //singleton
+        button1.setBackground(AppTheme.instance().buttonColor()); //singleton
         button1.setForeground(Color.white);
-        button1.setFont(new Font("Tahoma", Font.BOLD, 15));
+        button1.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.setLayout(new BoxLayout(buttonPanel,BoxLayout.PAGE_AXIS));
         buttonPanel.add(Box.createVerticalStrut(10));
         buttonPanel.add(button1);
         buttonPanel.add(Box.createVerticalStrut(10));
 
         rateCandidateButton = new JButton("<html>Rate A <br> Candidate</html>");
-        rateCandidateButton.setBackground(new Color(75, 0, 72)); //singleton
+        rateCandidateButton.setBackground(AppTheme.instance().buttonColor()); //singleton
         rateCandidateButton.setForeground(Color.white);
-        rateCandidateButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+        rateCandidateButton.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.add(rateCandidateButton);
 
         contentPane.add(buttonPanel,BorderLayout.WEST);
@@ -96,10 +98,10 @@ public class TeamView {
         JScrollPane scrollPane1 = new JScrollPane(pendingCandidates);
 
         JPanel leftPanel = new JPanel(new BorderLayout());
-        leftPanel.setBackground(new Color(244, 222, 251));
+        leftPanel.setBackground(AppTheme.instance().secondaryBackground());
         JLabel tableText = new JLabel("PENDING CANDIDATES");
         tableText.setForeground(Color.DARK_GRAY);
-        tableText.setFont(new Font("Serif", Font.BOLD, 30));
+        tableText.setFont(AppTheme.instance().headerText());
         leftPanel.add(tableText,BorderLayout.NORTH);
         leftPanel.add(scrollPane1,BorderLayout.SOUTH);
         tablesPanel.add(leftPanel);
@@ -115,10 +117,10 @@ public class TeamView {
         JScrollPane scrollPane1 = new JScrollPane(approvedCandidates);
 
         JPanel rightPanel = new JPanel(new BorderLayout());
-        rightPanel.setBackground(new Color(244, 222, 251));
+        rightPanel.setBackground(AppTheme.instance().secondaryBackground());
         JLabel tableText = new JLabel("APPROVED CANDIDATES");
         tableText.setForeground(Color.DARK_GRAY);
-        tableText.setFont(new Font("Serif", Font.BOLD, 30));
+        tableText.setFont(AppTheme.instance().headerText());
         rightPanel.add(tableText,BorderLayout.NORTH);
         rightPanel.add(scrollPane1,BorderLayout.SOUTH);
         tablesPanel.add(rightPanel);
