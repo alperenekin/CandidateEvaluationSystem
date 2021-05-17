@@ -13,7 +13,7 @@ public class DialogButton extends JDialog {
 
 
     public DialogButton(String dialogMessage,String boxName, JFrame frame){
-        super(frame,boxName);
+        super(frame,boxName,true);
         this.dialogMessage = dialogMessage;
         fillDialogButton();
     }
@@ -36,8 +36,6 @@ public class DialogButton extends JDialog {
 
         this.setSize(200,200);
         this.add(panel);
-        this.setVisible(true);
-
     }
 
     public JButton getConfirmButton() {

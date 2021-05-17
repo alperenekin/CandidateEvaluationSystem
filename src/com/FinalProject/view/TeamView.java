@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class HumanResourceAssistantView {
+public class TeamView {
     private JFrame frame;
     private JTable table;
     //Main panels to layout screen
@@ -29,7 +29,7 @@ public class HumanResourceAssistantView {
     private HumanResourceAssistant assistant;
     final int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width; // get size of the screen
 
-    public HumanResourceAssistantView(HumanResourceAssistant assistant) {
+    public TeamView(HumanResourceAssistant assistant) {
         this.assistant = assistant;
         createPanels();
         createButtonsAndTexts();
