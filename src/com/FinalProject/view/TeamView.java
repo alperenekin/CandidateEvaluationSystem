@@ -57,6 +57,10 @@ public class TeamView {
 
         tablesPanel = new JPanel();
         tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
+        contentPane.add(buttonPanel,BorderLayout.WEST);
+        contentPane.add(rightPanel,BorderLayout.EAST);
+        contentPane.add(topPanel, BorderLayout.NORTH);
+        contentPane.add(tablesPanel, BorderLayout.CENTER);
     }
 
     private void showTeamMembers(){
@@ -107,10 +111,7 @@ public class TeamView {
         postAd.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.add(postAd);
 
-        contentPane.add(buttonPanel,BorderLayout.WEST);
-        contentPane.add(rightPanel,BorderLayout.EAST);
-        contentPane.add(topPanel, BorderLayout.NORTH);
-        contentPane.add(tablesPanel, BorderLayout.CENTER);
+
     }
 
     private void createPendingCandidateTable(){
