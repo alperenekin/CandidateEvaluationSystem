@@ -2,6 +2,7 @@ package com.FinalProject.view;
 
 import com.FinalProject.model.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.Employees.IEmployee;
 import com.FinalProject.model.Employees.Team;
 
 import javax.swing.*;
@@ -37,17 +38,19 @@ public class TeamView {
         frame.setVisible(true);
         createPendingCandidateTable();
         createApprovedCandidateTable();
+        showTeamMembers();
     }
 
     private void createPanels(){
         frame = new JFrame("Candidate Evaluation");
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane  = frame.getContentPane();
 
         buttonPanel = new JPanel();
         buttonPanel.setBackground(AppTheme.instance().mainBackGroundColor());
 
         rightPanel = new JPanel();
-        rightPanel.setBackground(Color.GREEN); //make this for team elements
+        rightPanel.setBackground(AppTheme.instance().mainBackGroundColor()); //make this for team elements
 
         topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setBackground(AppTheme.instance().backupBackground());
@@ -56,31 +59,53 @@ public class TeamView {
         tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
     }
 
+    private void showTeamMembers(){
+        rightPanel.setLayout(new BoxLayout(rightPanel,BoxLayout.PAGE_AXIS));
+        JLabel teamMemberHeader = new JLabel("Team Members");
+        teamMemberHeader.setForeground(Color.ORANGE);
+        teamMemberHeader.setFont(AppTheme.instance().headerText());
+        teamMemberHeader.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+        rightPanel.add(teamMemberHeader);
+        for(IEmployee employee : team.getEmployees()){
+            JLabel nameSurname = new JLabel(employee.getName() + " " + employee.getSurname());
+            nameSurname.setForeground(Color.white);
+            nameSurname.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+            nameSurname.setFont(AppTheme.instance().headerTextSmall());
+            rightPanel.add(nameSurname);
+        }
+    }
+
     private void createButtonsAndTexts(){
         JLabel usernameLabel = new JLabel("Username:");
         usernameLabel.setForeground(Color.white);
-        HumanResourceAssistant assistant = team.findAssistant();
-        JLabel nameSurname = new JLabel(assistant.getName() + " " + assistant.getSurname());
+        JLabel nameSurname = new JLabel(team.getTeamName() + " team");
         nameSurname.setForeground(Color.white);
 
         topPanel.add(usernameLabel);
         topPanel.add(Box.createHorizontalStrut(10));
         topPanel.add(nameSurname);
 
-        JButton button1 = new JButton("<html>Search Candidate <br> From List</html>"); //change button name
-        button1.setBackground(AppTheme.instance().buttonColor()); //singleton
-        button1.setForeground(Color.white);
-        button1.setFont(AppTheme.instance().bodyTextFont());
+        JButton searchButton = new JButton("<html>Search Candidate <br> From List</html>"); //Make it show candidate details?
+        searchButton.setBackground(AppTheme.instance().buttonColor()); //singleton
+        searchButton.setForeground(Color.white);
+        searchButton.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.setLayout(new BoxLayout(buttonPanel,BoxLayout.PAGE_AXIS));
         buttonPanel.add(Box.createVerticalStrut(10));
-        buttonPanel.add(button1);
-        buttonPanel.add(Box.createVerticalStrut(10));
+        buttonPanel.add(searchButton);
 
+        buttonPanel.add(Box.createVerticalStrut(10));
         rateCandidateButton = new JButton("<html>Rate A <br> Candidate</html>");
         rateCandidateButton.setBackground(AppTheme.instance().buttonColor()); //singleton
         rateCandidateButton.setForeground(Color.white);
         rateCandidateButton.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.add(rateCandidateButton);
+
+        buttonPanel.add(Box.createVerticalStrut(10));
+        JButton  postAd = new JButton("<html> Post new Job <br> Advertisement </html>");
+        postAd.setBackground(AppTheme.instance().buttonColor()); //singleton
+        postAd.setForeground(Color.white);
+        postAd.setFont(AppTheme.instance().bodyTextFont());
+        buttonPanel.add(postAd);
 
         contentPane.add(buttonPanel,BorderLayout.WEST);
         contentPane.add(rightPanel,BorderLayout.EAST);
@@ -107,7 +132,7 @@ public class TeamView {
         tablesPanel.add(leftPanel);
     }
 
-    private void createApprovedCandidateTable(){ //NEEDS REFACTOR
+    private void createApprovedCandidateTable(){ //NEEDS REFACTOR Tables are almost same
         Vector<String> columns = new Vector<>();
         columns.add("Id");
         columns.add("Candidate Name");

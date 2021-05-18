@@ -17,7 +17,7 @@ public class Main {
         {
             public void run()
             {
-                ProjectManager manager = new ProjectManager("afas","12");
+                ProjectManager manager = new ProjectManager("Ahmet","Yildirim");
                 HumanResourceManager hrmanager = new HumanResourceManager(manager,"Ali","Yilmaz");
                 HumanResourceAssistant assistant = new HumanResourceAssistant(hrmanager,"Veli","Acar");
                 Team team = new Team("Software Team");

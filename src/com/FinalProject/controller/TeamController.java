@@ -47,7 +47,12 @@ public class TeamController {
                 null,
                 "1"
         );
-        return  result;
+
+        if(result != null && result.length()>0){
+            return result;
+        }else{
+            return null;
+        }
     }
 
     class RateCandidateListener implements ActionListener{
@@ -57,17 +62,20 @@ public class TeamController {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-            int result =  Integer.parseInt(showInputDialog());
-            candidate = pendingCandidates.remove(result);
-            EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame());
-            HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
-            if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
-                view.removeRowFromTable(view.getPendingCandidates(),result);
-                approvedCandidates.add(candidate);
-                view.addCandidateToTable(view.getApprovedCandidates(),candidate);
-            }else{//If eliminated, candidate will be deleted from list
-                view.removeRowFromTable(view.getPendingCandidates(),result);
-                //Here maybe we can show something like eliminated in a pop up.
+            String input = showInputDialog();
+            if(input != null){
+                int result =  Integer.parseInt(input);
+                candidate = pendingCandidates.remove(result);
+                EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame());
+                HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
+                if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
+                    view.removeRowFromTable(view.getPendingCandidates(),result);
+                    approvedCandidates.add(candidate);
+                    view.addCandidateToTable(view.getApprovedCandidates(),candidate);
+                }else{//If eliminated, candidate will be deleted from list
+                    view.removeRowFromTable(view.getPendingCandidates(),result);
+                    //Here maybe we can show something like eliminated in a pop up.
+                }
             }
         }
     }

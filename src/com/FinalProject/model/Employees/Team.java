@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Team {
     private String teamName;
+
     private List<IEmployee> employees;
 
     public Team(String teamName){
@@ -27,5 +28,13 @@ public class Team {
             }
         }
         return null;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public List<IEmployee> getEmployees() {
+        return employees;
     }
 }
