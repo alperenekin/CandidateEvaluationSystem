@@ -1,9 +1,9 @@
-package com.FinalProject.model;
+package com.FinalProject.model.Candidate;
 
 import com.FinalProject.model.States.BaseState;
 import com.FinalProject.model.States.Starter;
 
-public class Candidate {
+public abstract class Candidate {
     private String name;
     private String surname;
     private BaseState applicationState;

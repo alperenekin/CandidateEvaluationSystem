@@ -1,6 +1,6 @@
 package com.FinalProject.model.States;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 
 public class Certain extends BaseState{ //moves to this state at the end of process(Approval of project manager ?)
     private static Certain instance = new Certain();

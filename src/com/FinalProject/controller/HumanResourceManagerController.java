@@ -1,6 +1,6 @@
 package com.FinalProject.controller;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.HumanResourceManager;
 import com.FinalProject.model.Employees.IEmployee;

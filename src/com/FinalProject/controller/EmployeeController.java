@@ -1,6 +1,6 @@
 package com.FinalProject.controller;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.view.EmployeeDialogView;
 
 public abstract class  EmployeeController {

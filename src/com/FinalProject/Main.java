@@ -2,7 +2,7 @@ package com.FinalProject;
 
 import com.FinalProject.controller.HumanResourceAssistantController;
 import com.FinalProject.controller.TeamController;
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.HumanResourceManager;
 import com.FinalProject.model.Employees.ProjectManager;
@@ -28,7 +28,7 @@ public class Main {
                 team.addEmployee(assistant);
                 TeamView view = new TeamView(team);
                 TeamController controller = new TeamController(team,view);
-                //CandidateView candidateView = new CandidateView(null);
+                CandidateView candidateView = new CandidateView(null);
             }
         });
 

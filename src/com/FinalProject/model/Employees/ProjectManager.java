@@ -1,7 +1,7 @@
 package com.FinalProject.model.Employees;
 
-import com.FinalProject.model.Candidate;
 import com.FinalProject.model.ReviewResult;
+import com.FinalProject.model.Candidate.Candidate;
 
 public class ProjectManager extends IEmployee{
 

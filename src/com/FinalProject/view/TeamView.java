@@ -1,6 +1,6 @@
 package com.FinalProject.view;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.IEmployee;
 import com.FinalProject.model.Employees.Team;

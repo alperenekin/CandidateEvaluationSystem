@@ -1,6 +1,6 @@
 package com.FinalProject.model.States;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 
 public abstract class BaseState {
     private String name;

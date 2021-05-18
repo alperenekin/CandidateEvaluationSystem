@@ -1,6 +1,6 @@
 package com.FinalProject.model.States;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.Candidate;
 
 public class HighLevel extends BaseState{//probably state after humanResourceManager Approval
     private static HighLevel instance = new HighLevel();

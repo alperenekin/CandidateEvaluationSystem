@@ -1,6 +1,6 @@
 package com.FinalProject.controller;
 
-import com.FinalProject.model.Candidate;
+import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.Team;
 import com.FinalProject.model.States.Certain;
@@ -27,9 +27,9 @@ public class TeamController {
         this.view = view;
         pendingCandidates = new ArrayList<>();
         approvedCandidates = new ArrayList<>();
-        Candidate candidate1 = new Candidate("alperen","ekin");
-        Candidate candidate2 = new Candidate("ekin","tepebas");
-        Candidate candidate3 = new Candidate("ahmet","yilmaz");
+        Candidate candidate1 = new MobileCandidate("alperen","ekin");
+        Candidate candidate2 = new MobileCandidate("ekin","tepebas");
+        Candidate candidate3 = new MobileCandidate("ahmet","yilmaz");
         pendingCandidates.add(candidate1); pendingCandidates.add(candidate2); pendingCandidates.add(candidate3);
         view.addCandidateListToTable(view.getPendingCandidates(),pendingCandidates);
         HumanResourceAssistant assistant = team.findAssistant();
