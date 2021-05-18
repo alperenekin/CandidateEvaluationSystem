@@ -1,5 +1,6 @@
 package com.FinalProject;
 
+import com.FinalProject.controller.CandidateSignUpController;
 import com.FinalProject.controller.HumanResourceAssistantController;
 import com.FinalProject.controller.TeamController;
 import com.FinalProject.model.Candidate.Candidate;
@@ -29,6 +30,7 @@ public class Main {
                 TeamView view = new TeamView(team);
                 TeamController controller = new TeamController(team,view);
                 CandidateView candidateView = new CandidateView(null);
+                CandidateSignUpController candidateSignUpController = new CandidateSignUpController(candidateView);
             }
         });
 
