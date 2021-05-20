@@ -1,13 +1,11 @@
 package com.FinalProject.view;
 
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.IEmployee;
 import com.FinalProject.model.Employees.Team;
+import com.FinalProject.model.JobAdvert;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,8 +19,10 @@ public class TeamView {
     private JPanel rightPanel;
     private JPanel topPanel;
     private JPanel tablesPanel;
+
     private Container contentPane;
     private JButton rateCandidateButton;
+    private JButton  postAd;
 
     //Tables
     private CandidateTable pendingCandidates;
@@ -105,12 +105,11 @@ public class TeamView {
         buttonPanel.add(rateCandidateButton);
 
         buttonPanel.add(Box.createVerticalStrut(10));
-        JButton  postAd = new JButton("<html> Post new Job <br> Advertisement </html>");
+        postAd = new JButton("<html> Post new Job <br> Advertisement </html>");
         postAd.setBackground(AppTheme.instance().buttonColor()); //singleton
         postAd.setForeground(Color.white);
         postAd.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.add(postAd);
-
 
     }
 
@@ -187,4 +186,11 @@ public class TeamView {
         return frame;
     }
 
+    public JButton getPostAd() {
+        return postAd;
+    }
+
+    public JPanel getTablesPanel() {
+        return tablesPanel;
+    }
 }

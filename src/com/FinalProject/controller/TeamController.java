@@ -3,11 +3,10 @@ package com.FinalProject.controller;
 import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.Team;
+import com.FinalProject.model.JobAdvert;
 import com.FinalProject.model.States.Certain;
 import com.FinalProject.model.States.MidLevel;
-import com.FinalProject.view.DialogButton;
-import com.FinalProject.view.EmployeeDialogView;
-import com.FinalProject.view.TeamView;
+import com.FinalProject.view.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +20,6 @@ public class TeamController {
     private ArrayList<Candidate> approvedCandidates;
     private Candidate candidate;
 
-
     public TeamController(Team team, TeamView view){
         this.team = team;
         this.view = view;
@@ -34,6 +32,8 @@ public class TeamController {
         view.addCandidateListToTable(view.getPendingCandidates(),pendingCandidates);
         HumanResourceAssistant assistant = team.findAssistant();
         view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener(assistant));
+        view.addListenerToButton(view.getPostAd(),new AddAdvertListener());
+
 
     }
 
@@ -80,5 +80,32 @@ public class TeamController {
         }
     }
 
+    class AddAdvertListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AddJobButton jobButton = new AddJobButton("Enter job title, description and requirement,","New Job Advert",view.getFrame());
+            jobButton.addListenerToButton(new AddConfirmListener(jobButton));
 
+        }
+        class AddConfirmListener implements ActionListener{
+            private AddJobButton jobButton;
+            public AddConfirmListener(AddJobButton jobButton) {
+                this.jobButton = jobButton;
+            }
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("asfsadas");
+                String jobTitle = jobButton.getJobTitle();
+                String jobRequirement = jobButton.getReq();
+                String jobDescription = jobButton.getDesc();
+                JobAdvert job = new JobAdvert(team,jobTitle,jobDescription,jobRequirement,team.getTeamName(),true);
+                JobAdvertView jobView = new JobAdvertView(job);
+                jobButton.setVisible(false);
+                view.getTablesPanel().add(jobView);
+                view.getFrame().revalidate();
+                view.getFrame().repaint();
+            }
+        }
+    }
 }
