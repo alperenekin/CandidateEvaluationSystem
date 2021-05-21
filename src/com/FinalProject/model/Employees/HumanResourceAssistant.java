@@ -5,9 +5,9 @@ import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.view.DialogButton;
 
 public class HumanResourceAssistant extends IEmployee { //Should make a seperate class HumanResource maybe
-    private IEmployee successor;
+    private HumanResourceManager successor;
 
-    public HumanResourceAssistant(IEmployee successor,String name, String surname) {
+    public HumanResourceAssistant(HumanResourceManager successor,String name, String surname) {
         super(name,surname);
         this.successor = successor;
     }
@@ -26,7 +26,7 @@ public class HumanResourceAssistant extends IEmployee { //Should make a seperate
         return null;
     }
 
-    public IEmployee getSuccessor() {
+    public HumanResourceManager getSuccessor() {
         return successor;
     }
 }

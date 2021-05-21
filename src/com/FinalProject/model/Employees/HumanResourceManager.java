@@ -4,9 +4,9 @@ import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
 public class HumanResourceManager extends IEmployee {
-    private IEmployee successor;
+    private ProjectManager successor;
 
-    public HumanResourceManager(IEmployee successor,String name, String surname) {
+    public HumanResourceManager(ProjectManager successor,String name, String surname) {
         super(name, surname);
         this.successor = successor;
     }
@@ -25,7 +25,7 @@ public class HumanResourceManager extends IEmployee {
         return null;
     }
 
-    public IEmployee getSuccessor() {
+    public ProjectManager getSuccessor() {
         return successor;
     }
 }

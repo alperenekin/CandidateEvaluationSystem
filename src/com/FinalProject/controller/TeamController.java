@@ -1,5 +1,6 @@
 package com.FinalProject.controller;
 
+import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.Employees.Team;
@@ -11,6 +12,7 @@ import com.FinalProject.view.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 
 public class TeamController {
@@ -25,10 +27,13 @@ public class TeamController {
         this.view = view;
         pendingCandidates = new ArrayList<>();
         approvedCandidates = new ArrayList<>();
-        Candidate candidate1 = new MobileCandidate("alperen","ekin");
-        Candidate candidate2 = new MobileCandidate("ekin","tepebas");
-        Candidate candidate3 = new MobileCandidate("ahmet","yilmaz");
-        pendingCandidates.add(candidate1); pendingCandidates.add(candidate2); pendingCandidates.add(candidate3);
+        for(Candidate c : FileIO.instance().getCandidates()){
+            if(c.getApplicationState() != Certain.instance()){
+                pendingCandidates.add(c);
+            }else{
+                approvedCandidates.add(c);
+            }
+        }
         view.addCandidateListToTable(view.getPendingCandidates(),pendingCandidates);
         HumanResourceAssistant assistant = team.findAssistant();
         view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener(assistant));
@@ -95,7 +100,6 @@ public class TeamController {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("asfsadas");
                 String jobTitle = jobButton.getJobTitle();
                 String jobRequirement = jobButton.getReq();
                 String jobDescription = jobButton.getDesc();
