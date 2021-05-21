@@ -73,6 +73,7 @@ public class TeamController {
                 candidate = pendingCandidates.remove(result);
                 EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame());
                 HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
+                controller.reviewACandidate();
                 if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
                     view.removeRowFromTable(view.getPendingCandidates(),result);
                     approvedCandidates.add(candidate);
@@ -104,6 +105,8 @@ public class TeamController {
                 String jobRequirement = jobButton.getReq();
                 String jobDescription = jobButton.getDesc();
                 JobAdvert job = new JobAdvert(team,jobTitle,jobDescription,jobRequirement,team.getTeamName(),true);
+                FileIO.instance().getAdverts().add(job);
+                FileIO.instance().saveJobAdvertToFile();
                 JobAdvertView jobView = new JobAdvertView(job,false);
                 jobButton.setVisible(false);
                 view.getTablesPanel().add(jobView);

@@ -82,9 +82,9 @@ public class FileIO {
     }
 
     public void saveJobAdvertToFile(){
-        adverts = new ArrayList<>();
-        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa","mobileDev",true );
-        adverts.add(advert);
+//        adverts = new ArrayList<>();
+//        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa","mobileDev",true );
+//        adverts.add(advert);
         try (Writer writer = new FileWriter("jobadverts.json")){
             gson.toJson(adverts, writer);
             writer.flush();

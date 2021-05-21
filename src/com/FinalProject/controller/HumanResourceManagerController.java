@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class HumanResourceManagerController extends EmployeeController{
     private HumanResourceManager manager;
+    private EmployeeController successor;
     private String evaluation1;
     private String evaluation2;
     private String evaluation3; //TODO change with real criteria
@@ -25,7 +26,6 @@ public class HumanResourceManagerController extends EmployeeController{
         super(candidate,view);
         this.manager = (HumanResourceManager) employee;
         super.getDialogView().createDialogButton();
-        reviewACandidate();
     }
 
     @Override
@@ -58,7 +58,8 @@ public class HumanResourceManagerController extends EmployeeController{
             if(candidate.getApplicationState() == HighLevel.instance()){//If succesfull the state will change, the candidate will be deleted from pending and added to approved
                 System.out.println("Review is successful");
                 EmployeeDialogView view3 = new EmployeeDialogView(manager,view.getFrame());
-                ProjectManagerController controller = new ProjectManagerController(candidate,manager.getSuccessor(),view3);
+                successor = new ProjectManagerController(candidate,manager.getSuccessor(),view3);
+                successor.reviewACandidate();
             }
 
         }

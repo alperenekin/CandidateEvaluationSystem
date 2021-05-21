@@ -37,8 +37,9 @@ public class TeamView {
         createPanels();
         createButtonsAndTexts();
         frame.setVisible(true);
-        createPendingCandidateTable();
-        createApprovedCandidateTable();
+        initTables();
+        createCandidateTable(pendingCandidates,"PENDING CANDIDATES");
+        createCandidateTable(approvedCandidates,"APPROVED CANDIDATES");
         showTeamMembers();
         showJobAdverts();
     }
@@ -124,18 +125,11 @@ public class TeamView {
         }
     }
 
-    private void createPendingCandidateTable(){
-        Vector<String> columns = new Vector<>();
-        columns.add("Id");
-        columns.add("Candidate Name");
-        columns.add("Candidate Rate");
-
-        pendingCandidates = new CandidateTable(columns);
-        JScrollPane scrollPane1 = new JScrollPane(pendingCandidates);
-
+    private void createCandidateTable(CandidateTable table,String headerText){
+        JScrollPane scrollPane1 = new JScrollPane(table);
         JPanel leftPanel = new JPanel(new BorderLayout());
         leftPanel.setBackground(AppTheme.instance().secondaryBackground());
-        JLabel tableText = new JLabel("PENDING CANDIDATES");
+        JLabel tableText = new JLabel(headerText);
         tableText.setForeground(Color.DARK_GRAY);
         tableText.setFont(AppTheme.instance().headerText());
         leftPanel.add(tableText,BorderLayout.NORTH);
@@ -143,23 +137,14 @@ public class TeamView {
         tablesPanel.add(leftPanel);
     }
 
-    private void createApprovedCandidateTable(){ //NEEDS REFACTOR Tables are almost same
+    private void initTables(){
         Vector<String> columns = new Vector<>();
         columns.add("Id");
         columns.add("Candidate Name");
         columns.add("Candidate Rate");
 
+        pendingCandidates = new CandidateTable(columns);
         approvedCandidates = new CandidateTable(columns);
-        JScrollPane scrollPane1 = new JScrollPane(approvedCandidates);
-
-        JPanel rightPanel = new JPanel(new BorderLayout());
-        rightPanel.setBackground(AppTheme.instance().secondaryBackground());
-        JLabel tableText = new JLabel("APPROVED CANDIDATES");
-        tableText.setForeground(Color.DARK_GRAY);
-        tableText.setFont(AppTheme.instance().headerText());
-        rightPanel.add(tableText,BorderLayout.NORTH);
-        rightPanel.add(scrollPane1,BorderLayout.SOUTH);
-        tablesPanel.add(rightPanel);
     }
 
     public void addCandidateListToTable(CandidateTable table,ArrayList<Candidate> candidates){

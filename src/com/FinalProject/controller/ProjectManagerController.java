@@ -21,7 +21,6 @@ public class ProjectManagerController extends EmployeeController{
         super(candidate,view);
         this.manager = (ProjectManager) manager;
         super.getDialogView().createDialogButton();
-        reviewACandidate();
     }
 
     @Override
