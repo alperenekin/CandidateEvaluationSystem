@@ -100,7 +100,7 @@ public class TeamController {
                 String jobRequirement = jobButton.getReq();
                 String jobDescription = jobButton.getDesc();
                 JobAdvert job = new JobAdvert(team,jobTitle,jobDescription,jobRequirement,team.getTeamName(),true);
-                JobAdvertView jobView = new JobAdvertView(job);
+                JobAdvertView jobView = new JobAdvertView(job,false);
                 jobButton.setVisible(false);
                 view.getTablesPanel().add(jobView);
                 view.getFrame().revalidate();

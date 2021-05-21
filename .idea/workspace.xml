@@ -2,37 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca7c699f-9d4e-4b3d-98f7-100a3a35ff03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/FinalProject/model/JobAdvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/FinalProject/view/AddJobButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/FinalProject/view/JobAdvertView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceAssistantController$ConfirmButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceAssistantController$ConfirmButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceAssistantController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceAssistantController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceManagerController$ConfirmButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceManagerController$ConfirmButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/HumanResourceManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/ProjectManagerController$ConfirmButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/ProjectManagerController$ConfirmButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/ProjectManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/ProjectManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/TeamController$RateCandidateListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/TeamController$RateCandidateListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/TeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/controller/TeamController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/HumanResourceAssistant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/HumanResourceAssistant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/HumanResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/HumanResourceManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/IEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/IEmployee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/ProjectManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/Employees/ProjectManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/BaseState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/BaseState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/Certain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/Certain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/HighLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/HighLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/MidLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/MidLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/Starter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/model/States/Starter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateTable$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateTable$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/CandidateView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/TeamView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CandidateEvaluationSystem/com/FinalProject/view/TeamView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/FinalProject/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/FinalProject/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/FinalProject/view/CandidateTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/FinalProject/view/CandidateTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/FinalProject/view/TeamView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/FinalProject/view/TeamView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/FinalProject/view/JobAdvertView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/FinalProject/view/JobAdvertView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,30 +89,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="110" key="FileChooserDialogImpl/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621286999594" />
-    <state width="1481" height="266" key="GridCell.Tab.0.bottom" timestamp="1621551042513">
+    <state width="1481" height="266" key="GridCell.Tab.0.bottom" timestamp="1621596590682">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="408" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.2.1920.1040@-1920.2.1920.1040" timestamp="1621271843097" />
-    <state width="1481" height="266" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621551042513" />
+    <state width="1481" height="266" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621596590682" />
     <state width="1481" height="197" key="GridCell.Tab.0.bottom/0.0.1536.864/-1920.2.1920.1080@0.0.1536.864" timestamp="1621099709699" />
-    <state width="1481" height="266" key="GridCell.Tab.0.center" timestamp="1621551042513">
+    <state width="1481" height="266" key="GridCell.Tab.0.center" timestamp="1621596590681">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="408" key="GridCell.Tab.0.center/0.0.1536.824/-1920.2.1920.1040@-1920.2.1920.1040" timestamp="1621271843096" />
-    <state width="1481" height="266" key="GridCell.Tab.0.center/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621551042513" />
+    <state width="1481" height="266" key="GridCell.Tab.0.center/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621596590681" />
     <state width="1481" height="197" key="GridCell.Tab.0.center/0.0.1536.864/-1920.2.1920.1080@0.0.1536.864" timestamp="1621099709698" />
-    <state width="1481" height="266" key="GridCell.Tab.0.left" timestamp="1621551042512">
+    <state width="1481" height="266" key="GridCell.Tab.0.left" timestamp="1621596590681">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="408" key="GridCell.Tab.0.left/0.0.1536.824/-1920.2.1920.1040@-1920.2.1920.1040" timestamp="1621271843096" />
-    <state width="1481" height="266" key="GridCell.Tab.0.left/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621551042512" />
+    <state width="1481" height="266" key="GridCell.Tab.0.left/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621596590681" />
     <state width="1481" height="197" key="GridCell.Tab.0.left/0.0.1536.864/-1920.2.1920.1080@0.0.1536.864" timestamp="1621099709697" />
-    <state width="1481" height="266" key="GridCell.Tab.0.right" timestamp="1621551042513">
+    <state width="1481" height="266" key="GridCell.Tab.0.right" timestamp="1621596590681">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1865" height="408" key="GridCell.Tab.0.right/0.0.1536.824/-1920.2.1920.1040@-1920.2.1920.1040" timestamp="1621271843096" />
-    <state width="1481" height="266" key="GridCell.Tab.0.right/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621551042513" />
+    <state width="1481" height="266" key="GridCell.Tab.0.right/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621596590681" />
     <state width="1481" height="197" key="GridCell.Tab.0.right/0.0.1536.864/-1920.2.1920.1080@0.0.1536.864" timestamp="1621099709699" />
+    <state x="395" y="195" key="com.intellij.ide.util.TipDialog" timestamp="1621581297137">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="195" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.2.1920.1040@0.0.1536.824" timestamp="1621581297137" />
     <state x="541" y="310" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621342931738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

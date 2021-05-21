@@ -7,9 +7,10 @@ import java.awt.*;
 
 public class JobAdvertView extends JPanel {
     private JobAdvert jobAdvert;
-
-    public JobAdvertView(JobAdvert jobAdvert) { //panelin kenarlarýný görülür yap
+    private boolean canApply;
+    public JobAdvertView(JobAdvert jobAdvert, boolean canApply) { //panelin kenarlarýný görülür yap
         this.jobAdvert = jobAdvert;
+        this.canApply = canApply;
         createAdvertCard();
 
     }
@@ -64,6 +65,14 @@ public class JobAdvertView extends JPanel {
         reqText.setAlignmentY(CENTER_ALIGNMENT);
         secondPanel.add(reqText);
         box.add(secondPanel);
+
+        if(canApply){
+            JButton button = new JButton("Apply For Job");
+            button.setBackground(AppTheme.instance().buttonColor());
+            button.setForeground(Color.white);
+            box.add(button);
+        }
+
 
         this.add(box,BorderLayout.CENTER);
     }
