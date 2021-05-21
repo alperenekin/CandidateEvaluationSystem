@@ -1,5 +1,6 @@
 package com.FinalProject.view;
 
+import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.IEmployee;
 import com.FinalProject.model.Employees.Team;
@@ -39,6 +40,7 @@ public class TeamView {
         createPendingCandidateTable();
         createApprovedCandidateTable();
         showTeamMembers();
+        showJobAdverts();
     }
 
     private void createPanels(){
@@ -111,6 +113,15 @@ public class TeamView {
         postAd.setFont(AppTheme.instance().bodyTextFont());
         buttonPanel.add(postAd);
 
+    }
+
+    private void showJobAdverts(){
+        for(JobAdvert ad : FileIO.instance().getAdverts()){
+            if(ad.getPosition().equals("mobileDev")){
+                JobAdvertView view = new JobAdvertView(ad,false);
+                tablesPanel.add(view);
+            }
+        }
     }
 
     private void createPendingCandidateTable(){

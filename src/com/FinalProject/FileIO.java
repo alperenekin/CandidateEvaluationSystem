@@ -77,12 +77,14 @@ public class FileIO {
             Type jobType = new TypeToken<ArrayList<JobAdvert>>() {}.getType();// In order to parse for User Type.
             adverts = gson.fromJson(reader, jobType);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     public void saveJobAdvertToFile(){
+        adverts = new ArrayList<>();
+        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa","mobileDev",true );
+        adverts.add(advert);
         try (Writer writer = new FileWriter("jobadverts.json")){
             gson.toJson(adverts, writer);
             writer.flush();
@@ -124,5 +126,9 @@ public class FileIO {
 
     public ArrayList<Candidate> getCandidates() {
         return candidates;
+    }
+
+    public ArrayList<JobAdvert> getAdverts() {
+        return adverts;
     }
 }

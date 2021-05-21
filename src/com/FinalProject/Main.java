@@ -43,6 +43,10 @@ public class Main {
 //                teams.add(team); teams.add(team2);
                 FileIO.instance().readCandidatesFromFile();
                 FileIO.instance().readTeamsFromFile();
+                FileIO.instance().saveJobAdvertToFile();
+                FileIO.instance().readJobAdvertsFromFile();
+                FileIO.instance().getAdverts();
+
                 TeamView view = new TeamView(FileIO.instance().getTeams().get(0));
                 TeamController controller = new TeamController(FileIO.instance().getTeams().get(0),view);
                 CandidateView candidateView = new CandidateView(null);
