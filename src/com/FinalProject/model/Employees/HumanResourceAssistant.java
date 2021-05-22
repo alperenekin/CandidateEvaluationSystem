@@ -2,9 +2,8 @@ package com.FinalProject.model.Employees;
 
 import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.view.DialogButton;
 
-public class HumanResourceAssistant extends IEmployee { //Should make a seperate class HumanResource maybe
+public class HumanResourceAssistant extends Employee { //Should make a seperate class HumanResource maybe
     private HumanResourceManager successor;
 
     public HumanResourceAssistant(HumanResourceManager successor,String name, String surname) {

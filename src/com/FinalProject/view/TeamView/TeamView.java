@@ -1,10 +1,12 @@
-package com.FinalProject.view;
+package com.FinalProject.view.TeamView;
 
 import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.IEmployee;
-import com.FinalProject.model.Employees.Team;
+import com.FinalProject.model.Employees.Employee;
+import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert;
+import com.FinalProject.view.AppTheme;
+import com.FinalProject.view.CandidateView.CandidateTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,7 +75,7 @@ public class TeamView {
         teamMemberHeader.setFont(AppTheme.instance().headerText());
         teamMemberHeader.setAlignmentX(JLabel.CENTER_ALIGNMENT);
         rightPanel.add(teamMemberHeader);
-        for(IEmployee employee : team.getEmployees()){
+        for(Employee employee : team.getEmployees()){
             JLabel nameSurname = new JLabel(employee.getName() + " " + employee.getSurname());
             nameSurname.setForeground(Color.white);
             nameSurname.setAlignmentX(JLabel.CENTER_ALIGNMENT);
@@ -118,7 +120,7 @@ public class TeamView {
 
     private void showJobAdverts(){
         for(JobAdvert ad : FileIO.instance().getAdverts()){
-            if(ad.getPosition().equals("mobileDev")){
+            if(ad.getTeam() == team){
                 JobAdvertView view = new JobAdvertView(ad,false);
                 tablesPanel.add(view);
             }

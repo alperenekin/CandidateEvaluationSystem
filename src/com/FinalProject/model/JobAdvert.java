@@ -1,7 +1,5 @@
 package com.FinalProject.model;
 
-import com.FinalProject.model.Employees.Team;
-
 public class JobAdvert {
     private Team team;
     private String title;
@@ -17,6 +15,10 @@ public class JobAdvert {
         this.requirements = requirements;
         this.position = position;
         this.isActive = isActive;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public Team getTeam() {

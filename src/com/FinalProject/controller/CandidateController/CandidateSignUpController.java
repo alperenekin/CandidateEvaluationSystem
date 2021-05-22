@@ -1,10 +1,10 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.CandidateController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.FinalProject.model.Candidate.CandidateCreator;
-import com.FinalProject.view.CandidateView;
+import com.FinalProject.view.CandidateView.CandidateView;
 
 public class CandidateSignUpController {
 	private CandidateView view;

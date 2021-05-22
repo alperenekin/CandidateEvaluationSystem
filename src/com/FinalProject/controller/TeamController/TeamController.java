@@ -1,18 +1,20 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.TeamController;
 
 import com.FinalProject.FileIO;
+import com.FinalProject.controller.EmployeeController.HumanResourceAssistantController;
 import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
-import com.FinalProject.model.Employees.Team;
+import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert;
 import com.FinalProject.model.States.Certain;
-import com.FinalProject.model.States.MidLevel;
-import com.FinalProject.view.*;
+import com.FinalProject.view.TeamView.AddJobButton;
+import com.FinalProject.view.TeamView.EmployeeDialogView;
+import com.FinalProject.view.TeamView.JobAdvertView;
+import com.FinalProject.view.TeamView.TeamView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.ArrayList;
 
 public class TeamController {

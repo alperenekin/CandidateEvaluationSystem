@@ -3,7 +3,7 @@ package com.FinalProject.model.Employees;
 import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
-public class HumanResourceManager extends IEmployee {
+public class HumanResourceManager extends Employee {
     private ProjectManager successor;
 
     public HumanResourceManager(ProjectManager successor,String name, String surname) {

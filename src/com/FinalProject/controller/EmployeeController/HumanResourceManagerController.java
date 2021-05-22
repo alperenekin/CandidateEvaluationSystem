@@ -1,19 +1,13 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.EmployeeController;
 
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.Employees.Employee;
 import com.FinalProject.model.Employees.HumanResourceManager;
-import com.FinalProject.model.Employees.IEmployee;
-import com.FinalProject.model.Employees.ProjectManager;
 import com.FinalProject.model.States.HighLevel;
-import com.FinalProject.model.States.MidLevel;
-import com.FinalProject.view.DialogButton;
-import com.FinalProject.view.EmployeeDialogView;
+import com.FinalProject.view.TeamView.EmployeeDialogView;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class HumanResourceManagerController extends EmployeeController{
     private HumanResourceManager manager;
@@ -22,7 +16,7 @@ public class HumanResourceManagerController extends EmployeeController{
     private String evaluation2;
     private String evaluation3; //TODO change with real criteria
 
-    public HumanResourceManagerController(Candidate candidate, IEmployee employee, EmployeeDialogView view){
+    public HumanResourceManagerController(Candidate candidate, Employee employee, EmployeeDialogView view){
         super(candidate,view);
         this.manager = (HumanResourceManager) employee;
         super.getDialogView().createDialogButton();

@@ -1,7 +1,7 @@
-package com.FinalProject.view;
+package com.FinalProject.view.CandidateView;
 
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.Team;
+import com.FinalProject.view.AppTheme;
 
 import javax.swing.*;
 import java.awt.*;

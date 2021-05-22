@@ -1,4 +1,7 @@
-package com.FinalProject.model.Employees;
+package com.FinalProject.model;
+
+import com.FinalProject.model.Employees.Employee;
+import com.FinalProject.model.Employees.HumanResourceAssistant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +9,14 @@ import java.util.List;
 public class Team {
     private String teamName;
 
-    private List<IEmployee> employees;
+    private List<Employee> employees;
 
     public Team(String teamName){
         this.teamName = teamName;
         employees = new ArrayList<>();
     }
 
-    public boolean addEmployee(IEmployee employee){
+    public boolean addEmployee(Employee employee){
         if(employee != null){
             employees.add(employee);
             return true;
@@ -22,7 +25,7 @@ public class Team {
         }
     }
     public HumanResourceAssistant findAssistant(){
-        for(IEmployee employee : employees){
+        for(Employee employee : employees){
             if (employee instanceof HumanResourceAssistant){
                 return (HumanResourceAssistant) employee;
             }
@@ -34,7 +37,7 @@ public class Team {
         return teamName;
     }
 
-    public List<IEmployee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 }

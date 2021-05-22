@@ -1,21 +1,12 @@
 package com.FinalProject;
 
-import com.FinalProject.controller.CandidateSignUpController;
-import com.FinalProject.controller.HumanResourceAssistantController;
-import com.FinalProject.controller.TeamController;
-import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.HumanResourceAssistant;
-import com.FinalProject.model.Employees.HumanResourceManager;
-import com.FinalProject.model.Employees.ProjectManager;
-import com.FinalProject.model.Employees.Team;
-import com.FinalProject.view.CandidateView;
-import com.FinalProject.view.TeamView;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import com.FinalProject.controller.CandidateController.CandidateSignUpController;
+import com.FinalProject.controller.TeamController.TeamController;
+import com.FinalProject.view.CandidateView.CandidateView;
+import com.FinalProject.view.TeamView.TeamView;
 
 import javax.swing.*;
-import java.lang.reflect.Type;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
@@ -41,9 +32,10 @@ public class Main {
 //
 //                ArrayList<Team> teams = new ArrayList<>();
 //                teams.add(team); teams.add(team2);
-                FileIO.instance().readCandidatesFromFile();
-                FileIO.instance().readTeamsFromFile();
-                FileIO.instance().readJobAdvertsFromFile();
+                AppInitializer appInit = new AppInitializer();
+                ArrayList a = FileIO.instance().getTeams();
+                ArrayList b = FileIO.instance().getCandidates();
+                ArrayList c = FileIO.instance().getAdverts();
 
 
                 TeamView view = new TeamView(FileIO.instance().getTeams().get(0));

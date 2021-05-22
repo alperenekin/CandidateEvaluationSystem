@@ -3,8 +3,8 @@ package com.FinalProject.model.Employees;
 import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
-public abstract class IEmployee {
-    public IEmployee(String name, String surname) {
+public abstract class Employee {
+    public Employee(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }

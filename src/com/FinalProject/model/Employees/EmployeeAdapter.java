@@ -4,9 +4,9 @@ import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-public class EmployeeAdapter implements JsonSerializer<IEmployee>, JsonDeserializer<IEmployee> {
+public class EmployeeAdapter implements JsonSerializer<Employee>, JsonDeserializer<Employee> {
     @Override
-    public JsonElement serialize(IEmployee src, Type typeOfSrc, JsonSerializationContext context) {
+    public JsonElement serialize(Employee src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject result = new JsonObject();
         result.add("type", new JsonPrimitive(src.getClass().getSimpleName()));
         result.add("properties", context.serialize(src, src.getClass()));//to keep fields of the object in json
@@ -14,7 +14,7 @@ public class EmployeeAdapter implements JsonSerializer<IEmployee>, JsonDeseriali
     }
 
     @Override
-    public IEmployee deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+    public Employee deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         String type = jsonObject.get("type").getAsString();

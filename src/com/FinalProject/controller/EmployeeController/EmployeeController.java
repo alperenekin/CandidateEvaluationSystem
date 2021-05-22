@@ -1,7 +1,7 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.EmployeeController;
 
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.view.EmployeeDialogView;
+import com.FinalProject.view.TeamView.EmployeeDialogView;
 
 public abstract class  EmployeeController {
     private EmployeeDialogView dialogView;

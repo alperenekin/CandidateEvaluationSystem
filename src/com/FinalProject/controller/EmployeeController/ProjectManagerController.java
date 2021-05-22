@@ -1,12 +1,10 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.EmployeeController;
 
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Employees.HumanResourceAssistant;
-import com.FinalProject.model.Employees.IEmployee;
+import com.FinalProject.model.Employees.Employee;
 import com.FinalProject.model.Employees.ProjectManager;
 import com.FinalProject.model.States.Certain;
-import com.FinalProject.model.States.MidLevel;
-import com.FinalProject.view.EmployeeDialogView;
+import com.FinalProject.view.TeamView.EmployeeDialogView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +15,7 @@ public class ProjectManagerController extends EmployeeController{
     private String evaluation2;
     private String evaluation3; //TODO change with real criteria
 
-    public ProjectManagerController(Candidate candidate, IEmployee manager, EmployeeDialogView view){
+    public ProjectManagerController(Candidate candidate, Employee manager, EmployeeDialogView view){
         super(candidate,view);
         this.manager = (ProjectManager) manager;
         super.getDialogView().createDialogButton();

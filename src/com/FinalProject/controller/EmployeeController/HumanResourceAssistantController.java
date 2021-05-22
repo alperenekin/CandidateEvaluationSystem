@@ -1,18 +1,13 @@
-package com.FinalProject.controller;
+package com.FinalProject.controller.EmployeeController;
 
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
-import com.FinalProject.model.Employees.HumanResourceManager;
-import com.FinalProject.model.States.HighLevel;
 import com.FinalProject.model.States.MidLevel;
-import com.FinalProject.view.DialogButton;
-import com.FinalProject.view.EmployeeDialogView;
+import com.FinalProject.view.TeamView.EmployeeDialogView;
 
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class HumanResourceAssistantController extends EmployeeController{
     private HumanResourceAssistant assistant;

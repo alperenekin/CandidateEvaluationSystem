@@ -1,17 +1,17 @@
-package com.FinalProject.view;
+package com.FinalProject.view.TeamView;
 
-import com.FinalProject.model.Employees.HumanResourceAssistant;
-import com.FinalProject.model.Employees.IEmployee;
+import com.FinalProject.model.Employees.Employee;
+import com.FinalProject.view.TeamView.DialogButton;
 
 import javax.swing.*;
 
 public class EmployeeDialogView {
     private DialogButton dialogButton;
-    private IEmployee employee;
+    private Employee employee;
 
     private JFrame frame;
 
-    public EmployeeDialogView(IEmployee employee, JFrame frame) {
+    public EmployeeDialogView(Employee employee, JFrame frame) {
         this.employee = employee;
         this.frame = frame;
 

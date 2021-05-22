@@ -8,6 +8,7 @@ import com.FinalProject.model.Employees.*;
 import com.FinalProject.model.JobAdvert;
 import com.FinalProject.model.States.BaseState;
 import com.FinalProject.model.States.StateAdapter;
+import com.FinalProject.model.Team;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +33,7 @@ public class FileIO {
 
     private FileIO() {
         gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(IEmployee.class, new EmployeeAdapter()); //Adapters for seralizing and deserializing are added
+        gsonBuilder.registerTypeAdapter(Employee.class, new EmployeeAdapter()); //Adapters for seralizing and deserializing are added
         gsonBuilder.registerTypeAdapter(Candidate.class, new CandidateAdapter()); //Adapters for seralizing and deserializing are added
         gsonBuilder.registerTypeAdapter(BaseState.class, new StateAdapter()); //Adapters for seralizing and deserializing are added
         gson = gsonBuilder.create();

@@ -1,10 +1,11 @@
-package com.FinalProject.view;
+package com.FinalProject.view.CandidateView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.FinalProject.model.Candidate.Candidate;
+import com.FinalProject.view.AppTheme;
 
 import java.awt.*;
 import java.util.Vector;
