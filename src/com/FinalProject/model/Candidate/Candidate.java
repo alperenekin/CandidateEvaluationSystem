@@ -12,6 +12,7 @@ public abstract class Candidate {
     private int softSkills;
     private int technicalSkills;
     private int compatibleness;
+    private String cv;
 
     public Candidate(String name, String surname) {
         candidateId = AppUtill.candidateId;
@@ -19,6 +20,13 @@ public abstract class Candidate {
         this.name = name;
         this.surname = surname;
         applicationState = Starter.instance();
+        this.cv = "simdilik bos diger constructorda asl cv alan";
+    }
+    public Candidate(String name, String surname,String cv) {
+    	this.name = name;
+        this.surname = surname;
+        applicationState = Starter.instance();
+        this.cv = cv;
     }
 
     public void changeState(){

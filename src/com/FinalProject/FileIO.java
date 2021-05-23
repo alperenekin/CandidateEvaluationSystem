@@ -132,4 +132,16 @@ public class FileIO {
     public ArrayList<JobAdvert> getAdverts() {
         return adverts;
     }
+    public void addCandidate(Candidate candidate) {
+    	candidates.add(candidate);
+    	saveCandidatesToFile();
+    }
+    public void addTeam(Team team) {
+    	teams.add(team);    	
+    }
+    public void addJobAdvert(JobAdvert jobAdvert) {
+    	adverts.add(jobAdvert);
+    	saveJobAdvertToFile();
+    }
+    
 }

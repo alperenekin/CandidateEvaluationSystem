@@ -7,5 +7,8 @@ public class MobileCandidate extends Candidate {
 		// TODO Auto-generated constructor stub
 		System.out.println("Yey");
 	}
+	public MobileCandidate(String name, String surname, String cv) {
+		super(name,surname,cv);
+	}
 	
 }

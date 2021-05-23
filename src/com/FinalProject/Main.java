@@ -2,6 +2,10 @@ package com.FinalProject;
 
 import com.FinalProject.controller.CandidateController.CandidateSignUpController;
 import com.FinalProject.controller.TeamController.TeamController;
+import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.Team;
+import com.FinalProject.model.Candidate.Candidate;
+import com.FinalProject.model.Candidate.CandidateCreator;
 import com.FinalProject.view.CandidateView.CandidateView;
 import com.FinalProject.view.TeamView.TeamView;
 
@@ -33,15 +37,17 @@ public class Main {
 //                ArrayList<Team> teams = new ArrayList<>();
 //                teams.add(team); teams.add(team2);
                 AppInitializer appInit = new AppInitializer();
-                ArrayList a = FileIO.instance().getTeams();
-                ArrayList b = FileIO.instance().getCandidates();
-                ArrayList c = FileIO.instance().getAdverts();
-
+                ArrayList<Team> a = FileIO.instance().getTeams();
+                ArrayList<Candidate> b = FileIO.instance().getCandidates();
+                ArrayList<JobAdvert> c = FileIO.instance().getAdverts();
+                //System.out.println(c.get(0).getPosition());
 
                 TeamView view = new TeamView(FileIO.instance().getTeams().get(0));
                 TeamController controller = new TeamController(FileIO.instance().getTeams().get(0),view);
-                CandidateView candidateView = new CandidateView(null);
-                CandidateSignUpController candidateSignUpController = new CandidateSignUpController(candidateView);
+                String[] den = CandidateCreator.getCandidateTypes();
+                System.out.println(den.length);
+                CandidateView candidateView = new CandidateView(null,den);
+                CandidateSignUpController candidateSignUpController = new CandidateSignUpController(c, candidateView);
 
             }
         });
