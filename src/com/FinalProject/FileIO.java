@@ -105,11 +105,11 @@ public class FileIO {
     }
 
     public void saveCandidatesToFile(){
-        candidates = new ArrayList<>();
-        MobileCandidate candidate1 = new MobileCandidate("alperen","ekin");
-        MobileCandidate candidate2 = new MobileCandidate("ekin","tepebas");
-        MobileCandidate candidate3 = new MobileCandidate("ahmet","yilmaz");
-        candidates.add(candidate1); candidates.add(candidate2); candidates.add(candidate3);
+//        candidates = new ArrayList<>();
+//        MobileCandidate candidate1 = new MobileCandidate("alperen","ekin");
+//        MobileCandidate candidate2 = new MobileCandidate("ekin","tepebas");
+//        MobileCandidate candidate3 = new MobileCandidate("ahmet","yilmaz");
+//        candidates.add(candidate1); candidates.add(candidate2); candidates.add(candidate3);
         try (Writer writer = new FileWriter("candidates.json")){
             Type candidateType = new TypeToken<ArrayList<Candidate>>() {}.getType();// In order to parse for User Type.
             String jsonString = gson.toJson(candidates, candidateType);

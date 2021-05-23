@@ -5,12 +5,15 @@ import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert;
 
+import java.util.ArrayList;
+
 public class AppInitializer {
 
     public AppInitializer(){
-        FileIO.instance().readJobAdvertsFromFile();
         FileIO.instance().readTeamsFromFile();
         FileIO.instance().readCandidatesFromFile();
+        FileIO.instance().readJobAdvertsFromFile();
+
         initJobAdverts();
         findHighestCandidateId();
     }

@@ -2,6 +2,7 @@ package com.FinalProject.model;
 
 import java.util.ArrayList;
 
+import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 
 public class JobAdvert {
@@ -54,5 +55,6 @@ public class JobAdvert {
     	System.out.println("gelen candidate");
     	System.out.println(this.appliedCandidates.size());
     	this.appliedCandidates.add(candidate);
+        FileIO.instance().saveJobAdvertToFile();
     }
 }
