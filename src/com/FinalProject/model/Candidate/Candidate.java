@@ -13,6 +13,7 @@ public abstract class Candidate {
     private int technicalSkills;
     private int compatibleness;
     private String cv;
+    private String passwd;
 
     public Candidate(String name, String surname) {
         candidateId = AppUtill.candidateId;
@@ -27,6 +28,7 @@ public abstract class Candidate {
         this.surname = surname;
         applicationState = Starter.instance();
         this.cv = cv;
+        this.passwd=name+surname;
     }
 
     public void changeState(){
@@ -52,7 +54,9 @@ public abstract class Candidate {
     public int getSoftSkills() {
         return softSkills;
     }
-
+    public String getPasswd() {
+    	return this.passwd;
+    }
     public void setSoftSkills(int softSkills) {
         this.softSkills = softSkills;
     }

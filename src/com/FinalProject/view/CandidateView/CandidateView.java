@@ -3,6 +3,7 @@ package com.FinalProject.view.CandidateView;
 import com.FinalProject.model.JobAdvert;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.view.AppTheme;
+import com.FinalProject.view.TeamView.JobAdvertView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +24,8 @@ public class CandidateView {
     private JTextField userNameTextField,userSurnameTextField,cvTextField;
     private JLabel usernameLabel,surnameLabel,cvLabel,interestLabel,jobDescriptionLabel;
     private String[] candidateTypes;
+    private JobAdvertView panel;
+    JPanel center;
     
     public CandidateView(Candidate candidate,String[] candidateTypes) {
     	this.candidateTypes = candidateTypes;
@@ -45,7 +48,7 @@ public class CandidateView {
         usernameLabel = new JLabel("Your Name: ");
         surnameLabel = new JLabel("Your Surname: ");
         cvLabel = new JLabel("Cv: ");
-        interestLabel = new JLabel("Your interesting in : ");
+        interestLabel = new JLabel("You are interesting in : ");
         jobDescriptionLabel = new JLabel("Avaliable job adverts : ");
         
         candidateComboBox = new JComboBox(candidateTypes);
@@ -66,6 +69,56 @@ public class CandidateView {
         tablesPanel = new JPanel();
         tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
         
+        center = new JPanel(new GridBagLayout());
+        center.setBackground(AppTheme.instance().secondaryBackground());
+        GridBagConstraints grid = new GridBagConstraints();
+        
+        grid.gridx = 0;
+        grid.gridy = 0;
+        center.add(interestLabel,grid);
+
+        grid.gridx = 1;
+        grid.gridy = 0;
+        center.add(candidateComboBox,grid);
+        
+        grid.gridx = 0;
+        grid.gridy = 1;
+        center.add(jobDescriptionLabel,grid);
+
+        grid.gridx = 1;
+        grid.gridy = 1;
+        center.add(subAdvertComboBox,grid);
+        
+        grid.gridx = 0;
+        grid.gridy = 2;
+        center.add(usernameLabel,grid);
+        
+        grid.gridx = 1;
+        grid.gridy = 2;
+        center.add(userNameTextField,grid);
+        
+        grid.gridx = 0;
+        grid.gridy = 3;
+        center.add(surnameLabel,grid);
+        
+        grid.gridx = 1;
+        grid.gridy = 3;
+        center.add(userSurnameTextField,grid);
+        
+        grid.gridx = 0;
+        grid.gridy = 4;
+        center.add(cvLabel,grid);
+        
+        grid.gridx = 1;
+        grid.gridy = 4;
+        center.add(cvTextField,grid);
+        
+        grid.gridx = 1;
+        grid.gridy = 5;
+        center.add(SignUpButton,grid);
+        
+        /*
+        
         tablesPanel.add(interestLabel);
         tablesPanel.add(candidateComboBox);
         
@@ -82,12 +135,12 @@ public class CandidateView {
         tablesPanel.add(cvTextField);
         
         tablesPanel.add(SignUpButton);
-        
+        */
         contentPane.add(buttonPanel,BorderLayout.WEST);
         contentPane.add(rightPanel,BorderLayout.EAST);
         contentPane.add(topPanel, BorderLayout.NORTH);
-        contentPane.add(tablesPanel, BorderLayout.CENTER);
-        
+        //contentPane.add(tablesPanel, BorderLayout.CENTER);
+        contentPane.add(center, BorderLayout.CENTER);
     }
     public String getCandidateTypeComboBoxInput() {
 		return (String) this.candidateComboBox.getSelectedItem();
@@ -125,5 +178,13 @@ public class CandidateView {
 	public String getJobTitleComboBoxInput() {
 		// TODO Auto-generated method stub
 		return (String) subAdvertComboBox.getSelectedItem();
+	}
+	public void addJobAdvertPanel(JobAdvert job) {
+		
+		panel = new JobAdvertView(job,true);
+		GridBagConstraints grid = new GridBagConstraints();
+		grid.gridx = 1;
+        grid.gridy = 6;
+		center.add(panel,grid);
 	}
 }

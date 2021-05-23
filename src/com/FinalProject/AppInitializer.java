@@ -11,6 +11,7 @@ public class AppInitializer {
 
     public AppInitializer(){
         FileIO.instance().readTeamsFromFile();
+        //FileIO.instance().saveJobAdvertToFile();
         FileIO.instance().readCandidatesFromFile();
         FileIO.instance().readJobAdvertsFromFile();
 

@@ -26,13 +26,12 @@ public class CandidateSignUpController {
 			System.out.println(view.getCandidateTypeComboBoxInput());
 			
 			String jobTitle = view.getJobTitleComboBoxInput();
-			System.out.println(jobTitle);
+			//System.out.println(jobTitle);
 			JobAdvert job = findJobAdvertFromJobTitle(jobTitle);
 			String userName = view.getUserName();
 			String userSurname = view.getUserSurname();
 			String cv = view.getUserCv();
 			Candidate c = CandidateCreator.createCandidate(view.getCandidateTypeComboBoxInput(),userName,userSurname,cv);
-			System.out.println("job null mu ?"+job.getTitle());
 			job.addCandidate(c);
 			//GET THE OTHER COMBOBOX INPUT ALSO
 		}
@@ -42,7 +41,9 @@ public class CandidateSignUpController {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
+			String jobTitle = view.getJobTitleComboBoxInput();
+			JobAdvert job = findJobAdvertFromJobTitle(jobTitle);
+			view.addJobAdvertPanel(job);
 			
 		}
 		
@@ -82,7 +83,6 @@ public class CandidateSignUpController {
 	public JobAdvert findJobAdvertFromJobTitle(String position) {
 		JobAdvert j= null;
 		for (JobAdvert job: jobs) {
-			System.out.println(job.getTitle()+"+++++++"+position);
 			if(job.getTitle().equals(position)) {
 				j = job;
 			}
