@@ -1,7 +1,7 @@
 package com.FinalProject.view.TeamView;
 
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.Employee;
-import com.FinalProject.view.TeamView.DialogButton;
 
 import javax.swing.*;
 
@@ -17,8 +17,8 @@ public class EmployeeDialogView {
 
     }
 
-    public void createDialogButton(){
-        dialogButton = new DialogButton("Enter numbers", "Evaluate",frame);
+    public void createDialogButton(Candidate candidate){
+        dialogButton = new DialogButton(employee.getName() + " " + employee.getSurname() + " " + "please evaluate the candidate : " + candidate.getName() + " " + candidate.getSurname(), "Evaluate", frame);
     }
 
     public DialogButton getDialogButton(){

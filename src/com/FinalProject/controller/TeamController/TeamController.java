@@ -16,6 +16,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class TeamController {
     private Team team;
@@ -72,17 +73,25 @@ public class TeamController {
             String input = showInputDialog();
             if(input != null){
                 int result =  Integer.parseInt(input);
-                candidate = pendingCandidates.remove(result);
-                EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame());
-                HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
-                controller.reviewACandidate();
-                if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
-                    view.removeRowFromTable(view.getPendingCandidates(),result);
-                    approvedCandidates.add(candidate);
-                    view.addCandidateToTable(view.getApprovedCandidates(),candidate);
-                }else{//If eliminated, candidate will be deleted from list
-                    view.removeRowFromTable(view.getPendingCandidates(),result);
-                    //Here maybe we can show something like eliminated in a pop up.
+                candidate = pendingCandidates.stream().filter((Candidate c) -> c.getCandidateId() == result).findAny().orElse(null); //find candidate with given ID
+                if(candidate != null){
+                    EmployeeDialogView view2 = new EmployeeDialogView(assistant,view.getFrame()); //creates dialog view for taking input
+                    HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
+                    controller.reviewACandidate();//shows dialog for input, takes input makes evaluation if it passes sends to next person to evaluate, otherwise goes execution from next line and eleminates candidate.
+                    if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
+                        pendingCandidates.remove(candidate);
+                        view.removeRowFromTable(view.getPendingCandidates(),result);
+                        approvedCandidates.add(candidate);
+                        view.addCandidateToTable(view.getApprovedCandidates(),candidate);
+                    }else{//If eliminated, candidate will be deleted from list
+                        if(candidate.getTechnicalSkills() != 0 || candidate.getSoftSkills() != 0 || candidate.getCompatibleness() != 0){
+                            pendingCandidates.remove(candidate);
+                            view.removeRowFromTable(view.getPendingCandidates(),result);
+                            JOptionPane.showMessageDialog(view.getFrame(),"The candidate is eliminated!");
+                        }
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(view.getFrame(),"Candidate can not be found","Alert",JOptionPane.WARNING_MESSAGE);
                 }
             }
         }

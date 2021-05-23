@@ -1,9 +1,11 @@
 package com.FinalProject.model.Candidate;
 
+import com.FinalProject.Utill.AppUtill;
 import com.FinalProject.model.States.BaseState;
 import com.FinalProject.model.States.Starter;
 
 public abstract class Candidate {
+    private int candidateId;
     private String name;
     private String surname;
     private BaseState applicationState;
@@ -12,6 +14,8 @@ public abstract class Candidate {
     private int compatibleness;
 
     public Candidate(String name, String surname) {
+        candidateId = AppUtill.candidateId;
+        AppUtill.candidateId +=1;
         this.name = name;
         this.surname = surname;
         applicationState = Starter.instance();
@@ -62,4 +66,7 @@ public abstract class Candidate {
     }
 
 
+    public int getCandidateId() {
+        return candidateId;
+    }
 }

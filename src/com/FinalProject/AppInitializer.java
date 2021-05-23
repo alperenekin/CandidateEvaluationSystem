@@ -1,5 +1,7 @@
 package com.FinalProject;
 
+import com.FinalProject.Utill.AppUtill;
+import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert;
 
@@ -10,6 +12,7 @@ public class AppInitializer {
         FileIO.instance().readTeamsFromFile();
         FileIO.instance().readCandidatesFromFile();
         initJobAdverts();
+        findHighestCandidateId();
     }
 
     private void initJobAdverts(){
@@ -20,5 +23,15 @@ public class AppInitializer {
                 }
             }
         }
+    }
+
+    private void findHighestCandidateId(){
+        int max = 0;
+        for(Candidate candidate : FileIO.instance().getCandidates()){
+            if(candidate.getCandidateId() > max){
+                max = candidate.getCandidateId();
+            }
+        }
+        AppUtill.candidateId = max+1;
     }
 }

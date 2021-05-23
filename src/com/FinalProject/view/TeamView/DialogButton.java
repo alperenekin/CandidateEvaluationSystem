@@ -26,22 +26,34 @@ public class DialogButton extends JDialog {
         JPanel panel = new JPanel();
         panel.setBackground(AppTheme.instance().secondaryBackground());
 
-        JPanel center = new JPanel(new FlowLayout());
+        Box box = Box.createVerticalBox();
+        JPanel evaluate1 = new JPanel();
+        evaluate1.setLayout(new BoxLayout(evaluate1, BoxLayout.X_AXIS));
+        JLabel rateText1 = new JLabel("Rate social skills : ");
         skill1 = new JTextField(2);
+        box.add(rateText1); box.add(skill1);
+
+        JPanel evaluate2 = new JPanel();
+        evaluate2.setLayout(new BoxLayout(evaluate2, BoxLayout.X_AXIS));
+        JLabel rateText2 = new JLabel("Rate social skills : ");
         skill2 = new JTextField(2);
+        box.add(rateText2); box.add(skill2);
+
+        JPanel evaluate3 = new JPanel();
+        evaluate3.setLayout(new BoxLayout(evaluate3, BoxLayout.X_AXIS));
+        JLabel rateText3 = new JLabel("Rate social skills : ");
         skill3 = new JTextField(2);
+        box.add(rateText3); box.add(skill3);
+
         confirmButton = new JButton("Confirm");
         confirmButton.setBackground(AppTheme.instance().buttonColor());
         confirmButton.setForeground(Color.white);
 
         panel.add(message, BorderLayout.NORTH);
-        center.add(skill1);
-        center.add(skill2);
-        center.add(skill3);
-        panel.add(center,BorderLayout.CENTER);
+        panel.add(box,BorderLayout.CENTER);
         panel.add(confirmButton,BorderLayout.SOUTH);
 
-        this.setSize(200,200);
+        this.setSize(500,250);
         this.add(panel);
     }
 

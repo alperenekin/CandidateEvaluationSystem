@@ -50,7 +50,7 @@ public class CandidateTable extends JTable {
     public void addRowToTable(Candidate candidate) {
         int count = tableModel.getRowCount();
         Vector<String> vector = new Vector<String>();
-        vector.add(String.valueOf(count));
+        vector.add(String.valueOf(candidate.getCandidateId()));
         vector.add(candidate.getName() + " " + candidate.getSurname());
         vector.add("" + candidate.getSoftSkills());
         if (tableModel != null) {

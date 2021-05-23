@@ -10,7 +10,7 @@ public abstract class  EmployeeController {
     public EmployeeController(Candidate candidate , EmployeeDialogView view){
         this.candidate = candidate;
         this.dialogView = view;
-        dialogView.createDialogButton();
+        dialogView.createDialogButton(candidate);
     }
 
     public  abstract void reviewACandidate();
