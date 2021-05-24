@@ -1,6 +1,6 @@
 package com.FinalProject.model.Employees;
 
-import com.FinalProject.FileIO;
+import com.FinalProject.Utill.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 
 public class ProjectManager extends Employee{

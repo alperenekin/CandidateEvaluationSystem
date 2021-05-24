@@ -1,6 +1,5 @@
-package com.FinalProject;
+package com.FinalProject.Utill;
 
-import com.FinalProject.Utill.AppUtill;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.States.Certain;
 import com.FinalProject.model.States.HighLevel;

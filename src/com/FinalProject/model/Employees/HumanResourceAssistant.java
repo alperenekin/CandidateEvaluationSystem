@@ -1,6 +1,6 @@
 package com.FinalProject.model.Employees;
 
-import com.FinalProject.FileIO;
+import com.FinalProject.Utill.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 
 public class HumanResourceAssistant extends Employee { //Should make a seperate class HumanResource maybe

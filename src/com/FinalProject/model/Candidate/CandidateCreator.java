@@ -1,6 +1,6 @@
 package com.FinalProject.model.Candidate;
 
-import com.FinalProject.FileIO;
+import com.FinalProject.Utill.FileIO;
 import com.FinalProject.model.JobAdvert.Position;
 
 /*

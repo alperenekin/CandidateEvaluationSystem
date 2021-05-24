@@ -2,8 +2,8 @@ package com.FinalProject.model.JobAdvert;
 
 import java.util.ArrayList;
 
-import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
+import com.FinalProject.Utill.FileIO;
 import com.FinalProject.model.Team;
 
 public class JobAdvert {

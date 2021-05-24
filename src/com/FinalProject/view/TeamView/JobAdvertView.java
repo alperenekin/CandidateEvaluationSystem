@@ -68,12 +68,12 @@ public class JobAdvertView extends JPanel {
         secondPanel.add(reqText);
         box.add(secondPanel);
 
-        if(canApply){
+        /*if(canApply){
             JButton button = new JButton("Apply For Job");
             button.setBackground(AppTheme.instance().buttonColor());
             button.setForeground(Color.white);
             box.add(button);
-        }
+        }*/
 
 
         this.add(box,BorderLayout.CENTER);

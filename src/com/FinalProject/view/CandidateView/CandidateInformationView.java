@@ -1,6 +1,6 @@
 package com.FinalProject.view.CandidateView;
 
-import com.FinalProject.FileIO;
+import com.FinalProject.Utill.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.Employee;
 import com.FinalProject.model.JobAdvert.JobAdvert;
