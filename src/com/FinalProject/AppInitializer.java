@@ -2,8 +2,15 @@ package com.FinalProject;
 
 import com.FinalProject.Utill.AppUtill;
 import com.FinalProject.model.Candidate.Candidate;
+import com.FinalProject.model.States.Certain;
+import com.FinalProject.model.States.HighLevel;
+import com.FinalProject.model.States.MidLevel;
+import com.FinalProject.model.States.Starter;
 import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert.JobAdvert;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class AppInitializer {
 
@@ -17,6 +24,7 @@ public class AppInitializer {
         FileIO.instance().readJobAdvertsFromFile();
 
         initJobAdverts();
+        initCandidateStates();
         findHighestCandidateId();
     }
 
@@ -28,6 +36,19 @@ public class AppInitializer {
                 }
             }
         }
+
+        for(JobAdvert job : FileIO.instance().getAdverts()){
+            ArrayList<Candidate> candidates = new ArrayList<>();
+            for(Candidate applicant : job.getAppliedCandidates()){
+                for(Candidate candidate : FileIO.instance().getCandidates()){
+                    if(applicant.getCandidateId() == candidate.getCandidateId()) {
+                        candidates.add(candidate);
+                    }
+                }
+            }
+            job.setAppliedCandidates(candidates);
+        }
+
     }
 
     private void findHighestCandidateId(){
@@ -38,5 +59,21 @@ public class AppInitializer {
             }
         }
         AppUtill.candidateId = max+1;
+    }
+
+    private void initCandidateStates(){
+        for(Candidate candidate : FileIO.instance().getCandidates()) {
+            if(candidate.getApplicationState() instanceof Starter){
+                candidate.setApplicationState(Starter.instance());
+            }
+            else if(candidate.getApplicationState() instanceof MidLevel){
+                candidate.setApplicationState(MidLevel.instance());
+            }else if(candidate.getApplicationState() instanceof HighLevel){
+                candidate.setApplicationState(HighLevel.instance());
+            }
+            else if(candidate.getApplicationState() instanceof Certain){
+                candidate.setApplicationState(Certain.instance());
+            }
+        }
     }
 }

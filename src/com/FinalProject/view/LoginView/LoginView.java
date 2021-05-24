@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class LoginView extends JFrame {
     private JTextField username;
-    private JTextField password;
+    private JPasswordField password;
     private JButton loginButton;
     private JButton switchCandidateLoginButton;
     private JButton startWithoutLogin;
@@ -26,7 +26,7 @@ public class LoginView extends JFrame {
         username = new JTextField(20);
         JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setForeground(Color.white);
-        password = new JTextField(20);
+        password = new JPasswordField(20);
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setForeground(Color.white);
         loginButton = new JButton("Login as Team");
@@ -93,7 +93,7 @@ public class LoginView extends JFrame {
     }
 
     public String getPassword(){
-        return password.getText();
+        return new String(password.getPassword());
     }
 
     public void disposeFrame(){

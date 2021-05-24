@@ -45,9 +45,9 @@ public class ProjectManagerController extends EmployeeController{
             if(evaluation1.isEmpty() || evaluation2.isEmpty() || evaluation3.isEmpty()){
                 JOptionPane.showMessageDialog(view.getFrame(),"Fields cant be empty","Alert",JOptionPane.WARNING_MESSAGE);
             }else{
-                candidate.setCompatibleness((Integer.parseInt(evaluation1) + candidate.getCompatibleness())/2); // Assign taken input to candidate
-                candidate.setSoftSkills((Integer.parseInt(evaluation2)+ candidate.getSoftSkills())/2);
-                candidate.setTechnicalSkills((Integer.parseInt(evaluation3)+ candidate.getTechnicalSkills())/2);
+                candidate.setCompatibleness(Integer.parseInt(evaluation1)); // Assign taken input to candidate
+                candidate.setSoftSkills(Integer.parseInt(evaluation2));
+                candidate.setTechnicalSkills(Integer.parseInt(evaluation3));
                 manager.reviewCandidate(candidate); //Review candidate and see if he passes it
                 view.getDialogButton().setVisible(false);
                 view.getDialogButton().dispose();

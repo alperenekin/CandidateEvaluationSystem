@@ -2,7 +2,7 @@ package com.FinalProject.model.States;
 
 import com.FinalProject.model.Candidate.Candidate;
 
-public class MidLevel extends BaseState{//probably state after humanResourceAssistant Approval
+public class MidLevel extends BaseState{//state after humanResourceAssistant Approval
     private static MidLevel instance = new MidLevel();
 
     private MidLevel() {

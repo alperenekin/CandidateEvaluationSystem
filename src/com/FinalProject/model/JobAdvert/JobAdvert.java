@@ -57,4 +57,13 @@ public class JobAdvert {
     	this.appliedCandidates.add(candidate);
         FileIO.instance().saveJobAdvertToFile();
     }
+
+    public ArrayList<Candidate> getAppliedCandidates() {
+        return appliedCandidates;
+    }
+
+    public void setAppliedCandidates(ArrayList<Candidate> appliedCandidates) {
+        this.appliedCandidates = appliedCandidates;
+    }
+
 }

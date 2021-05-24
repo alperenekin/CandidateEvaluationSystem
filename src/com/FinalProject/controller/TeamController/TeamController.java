@@ -5,6 +5,7 @@ import com.FinalProject.controller.EmployeeController.HumanResourceAssistantCont
 import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
 import com.FinalProject.model.JobAdvert.Position;
+import com.FinalProject.model.States.Starter;
 import com.FinalProject.model.Team;
 import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.model.States.Certain;
@@ -31,20 +32,30 @@ public class TeamController {
         this.view = view;
         pendingCandidates = new ArrayList<>();
         approvedCandidates = new ArrayList<>();
-        for(Candidate c : FileIO.instance().getCandidates()){
-            if(c.getApplicationState() != Certain.instance()){
-                pendingCandidates.add(c);
-            }else{
-                approvedCandidates.add(c);
-            }
-        }
+        initCandidateLists();
         view.addCandidateListToTable(view.getPendingCandidates(),pendingCandidates);
+        view.addCandidateListToTable(view.getApprovedCandidates(),approvedCandidates);
         HumanResourceAssistant assistant = team.findAssistant();
         view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener(assistant));
         view.addListenerToButton(view.getPostAd(),new AddAdvertListener());
         view.addListenerToButton(view.getSearchButton(), new SearchCandidateListener());
 
 
+    }
+
+    private void initCandidateLists(){
+        for(JobAdvert job : FileIO.instance().getAdverts()){
+          if(job.getTeam() == team){
+              for(Candidate possibleCandidate : job.getAppliedCandidates()){
+                  if(possibleCandidate.getApplicationState() == Certain.instance()){
+                      approvedCandidates.add(possibleCandidate);
+                  }
+                  else if(possibleCandidate.getApplicationState() == Starter.instance()){
+                      pendingCandidates.add(possibleCandidate);
+                  }
+              }
+          }
+        }
     }
 
     private String showInputDialog(){
@@ -99,14 +110,16 @@ public class TeamController {
                     HumanResourceAssistantController controller = new HumanResourceAssistantController(candidate,assistant,view2);
                     controller.reviewACandidate();//shows dialog for input, takes input makes evaluation if it passes sends to next person to evaluate, otherwise goes execution from next line and eleminates candidate.
                     if(candidate.getApplicationState() == Certain.instance()){ //if candidate can pass all, it will be added to approved.
+                        int index = pendingCandidates.indexOf(candidate);
                         pendingCandidates.remove(candidate);
-                        view.removeRowFromTable(view.getPendingCandidates(),result);
+                        view.removeRowFromTable(view.getPendingCandidates(),index);
                         approvedCandidates.add(candidate);
                         view.addCandidateToTable(view.getApprovedCandidates(),candidate);
                     }else{//If eliminated, candidate will be deleted from list
                         if(candidate.getTechnicalSkills() != 0 || candidate.getSoftSkills() != 0 || candidate.getCompatibleness() != 0){
+                            int index = pendingCandidates.indexOf(candidate);
                             pendingCandidates.remove(candidate);
-                            view.removeRowFromTable(view.getPendingCandidates(),result);
+                            view.removeRowFromTable(view.getPendingCandidates(),index);
                             JOptionPane.showMessageDialog(view.getFrame(),"The candidate is eliminated!");
                         }
                     }

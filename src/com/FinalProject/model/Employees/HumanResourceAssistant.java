@@ -1,5 +1,6 @@
 package com.FinalProject.model.Employees;
 
+import com.FinalProject.FileIO;
 import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
@@ -19,9 +20,12 @@ public class HumanResourceAssistant extends Employee { //Should make a seperate 
         int avg = (technicalSkill+softSkill+compatibleness)/3;
         if(avg > 6){
             candidate.changeState();
+            candidate.resetCandidateSkills();
         }else{
             System.out.println("This candidate is eleminated");
         }
+        FileIO.instance().saveCandidatesToFile();
+
         return null;
     }
 

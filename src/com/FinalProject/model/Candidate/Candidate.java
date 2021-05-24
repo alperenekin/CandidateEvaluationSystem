@@ -79,8 +79,13 @@ public abstract class Candidate {
         this.compatibleness = compatibleness;
     }
 
-
     public int getCandidateId() {
         return candidateId;
+    }
+
+    public  void resetCandidateSkills(){
+        setCompatibleness(0);
+        setSoftSkills(0);
+        setTechnicalSkills(0);
     }
 }
