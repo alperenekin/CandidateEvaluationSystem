@@ -6,6 +6,7 @@ import com.FinalProject.controller.TeamController.TeamController;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Candidate.CandidateCreator;
 import com.FinalProject.model.Team;
+import com.FinalProject.view.CandidateView.CandidateLoginView;
 import com.FinalProject.view.CandidateView.CandidateView;
 import com.FinalProject.view.LoginView.LoginView;
 import com.FinalProject.view.TeamView.TeamView;
@@ -63,6 +64,23 @@ public class LoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("Switch to candidate login page");
+            String candidateName = view.getUsername();
+            String candidatePwd = view.getPassword();
+            //Candidate loggedCandidate= loginCandidate(candidateName,candidatePwd);
+            //CandidateLoginView candidateLoginView = new CandidateLoginView(loggedCandidate);
+            CandidateLoginView candidateLoginView = new CandidateLoginView();
+            CandidateLoginController candidateLoginController = new CandidateLoginController(candidateLoginView);
+            view.setVisible(false);
+            view.disposeFrame();
         }
     }
+
+	public Candidate loginCandidate(String name,String pwd) {
+		for(Candidate candidate: candidates) {
+			if(candidate.getPasswd().equals(pwd)&&candidate.getUserName().equals(name)) {
+				return candidate;
+			}
+		}
+		return null;
+	}
 }

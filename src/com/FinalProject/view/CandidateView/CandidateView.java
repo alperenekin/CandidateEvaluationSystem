@@ -17,7 +17,7 @@ public class CandidateView {
     private JPanel buttonPanel;
     private JPanel rightPanel;
     private JPanel topPanel;
-    private JPanel tablesPanel;
+    private JPanel center;
     private Container contentPane;
     @SuppressWarnings("rawtypes")
 	private JComboBox candidateComboBox,subAdvertComboBox;
@@ -26,7 +26,7 @@ public class CandidateView {
     private JLabel usernameLabel,surnameLabel,cvLabel,interestLabel,jobDescriptionLabel;
     private String[] candidateTypes;
     private JobAdvertView panel;
-    JPanel center;
+    
     
     public CandidateView(Candidate candidate,String[] positions) {
     	this.candidateTypes = positions;
@@ -68,8 +68,8 @@ public class CandidateView {
         topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setBackground(AppTheme.instance().backupBackground());
 
-        tablesPanel = new JPanel();
-        tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
+        //tablesPanel = new JPanel();
+        //tablesPanel.setBackground(AppTheme.instance().secondaryBackground());
         
         center = new JPanel(new GridBagLayout());
         center.setBackground(AppTheme.instance().secondaryBackground());
@@ -141,7 +141,6 @@ public class CandidateView {
         contentPane.add(buttonPanel,BorderLayout.WEST);
         contentPane.add(rightPanel,BorderLayout.EAST);
         contentPane.add(topPanel, BorderLayout.NORTH);
-        //contentPane.add(tablesPanel, BorderLayout.CENTER);
         contentPane.add(center, BorderLayout.CENTER);
     }
     public String getCandidateTypeComboBoxInput() {
