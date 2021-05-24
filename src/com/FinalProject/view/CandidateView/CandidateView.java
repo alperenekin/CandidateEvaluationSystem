@@ -191,6 +191,7 @@ public class CandidateView {
 	public void removeJobAdvertPanel(JobAdvertView oldJob) {
 		if(oldJob!= null) {
 			center.remove(oldJob);
+			center.revalidate();
 			center.repaint();
 		}
 		
