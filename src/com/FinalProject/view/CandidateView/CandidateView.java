@@ -118,26 +118,7 @@ public class CandidateView {
         grid.gridx = 1;
         grid.gridy = 5;
         center.add(SignUpButton,grid);
-        
-        /*
-        
-        tablesPanel.add(interestLabel);
-        tablesPanel.add(candidateComboBox);
-        
-        tablesPanel.add(jobDescriptionLabel);
-        tablesPanel.add(subAdvertComboBox);
-        
-                
-        //topPanel.add(usernameLabel);
-        tablesPanel.add(usernameLabel);
-        tablesPanel.add(userNameTextField);
-        tablesPanel.add(surnameLabel);
-        tablesPanel.add(userSurnameTextField);
-        tablesPanel.add(cvLabel);
-        tablesPanel.add(cvTextField);
-        
-        tablesPanel.add(SignUpButton);
-        */
+
         contentPane.add(buttonPanel,BorderLayout.WEST);
         contentPane.add(rightPanel,BorderLayout.EAST);
         contentPane.add(topPanel, BorderLayout.NORTH);

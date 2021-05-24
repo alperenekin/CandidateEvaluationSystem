@@ -99,9 +99,10 @@ public class FileIO {
     }
 
     public void saveJobAdvertToFile(){
-//    	adverts = new ArrayList<>();
-//        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa", Position.Mobile,true );
-//        adverts.add(advert);
+//        adverts = new ArrayList<>();
+//       JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Developer","We are searching a junior mobile software developer","Graduated from computer engineering, at least 3 gpa, good command of english", Position.Mobile,true );
+//       advert.addCandidate(candidates.get(0));
+//       adverts.add(advert);
         try (Writer writer = new FileWriter("jobadverts.json")){
             gson.toJson(adverts, writer);
             writer.flush();
@@ -122,8 +123,9 @@ public class FileIO {
 
     public void saveCandidatesToFile(){
 //       candidates = new ArrayList<>();
-//       MobileCandidate candidate1 = new MobileCandidate("Alperen","Ekin");
-//       MobileCandidate candidate2 = new MobileCandidate("Ekin","Tepebas");
+//       MobileCandidate candidate1 = new MobileCandidate("Alperen","Ekin","I am going to graduate From Iztech in this Summer. I finished my internship. I am looking for mobile developer position");
+//        candidates.add(candidate1);
+       //       MobileCandidate candidate2 = new MobileCandidate("Ekin","Tepebas");
 //       MobileCandidate candidate3 = new MobileCandidate("Ahmet","Yilmaz");
 //       candidates.add(candidate1); candidates.add(candidate2); candidates.add(candidate3);
         try (Writer writer = new FileWriter("candidates.json")){
@@ -151,13 +153,6 @@ public class FileIO {
     public void addCandidate(Candidate candidate) {
     	candidates.add(candidate);
     	saveCandidatesToFile();
-    }
-    public void addTeam(Team team) {
-    	teams.add(team);    	
-    }
-    public void addJobAdvert(JobAdvert jobAdvert) {
-    	adverts.add(jobAdvert);
-    	saveJobAdvertToFile();
     }
     
 }

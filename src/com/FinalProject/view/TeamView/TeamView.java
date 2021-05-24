@@ -49,6 +49,7 @@ public class TeamView {
 
     private void createPanels(){
         frame = new JFrame("Candidate Evaluation");
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane  = frame.getContentPane();
 

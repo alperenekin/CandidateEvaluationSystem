@@ -42,7 +42,7 @@ public class CandidateTable extends JTable {
         this.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         this.getColumnModel().getColumn(0).setMaxWidth(50);
         this.setBackground(AppTheme.instance().tableBackgroundColor());
-        int width1 = (int) (screenWidth *(0.5));
+        int width1 = (int) (screenWidth *(0.3));
         int height1 = 10 * this.getRowHeight();
         this.setPreferredScrollableViewportSize(new Dimension(width1, height1));
     }

@@ -22,7 +22,7 @@ public abstract class Candidate {
         this.name = name;
         this.surname = surname;
         applicationState = Starter.instance();
-        this.cv = "simdilik bos diger constructorda asl cv alan";
+        this.cv = "";
     }
     public Candidate(String name, String surname,String cv) {
         candidateId = AppUtill.candidateId;
