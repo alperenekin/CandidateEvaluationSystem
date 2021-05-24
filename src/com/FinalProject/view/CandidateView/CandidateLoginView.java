@@ -25,7 +25,7 @@ public class CandidateLoginView {
         createLoginFields();
 	}
 	private void createPanels() {
-		frame = new JFrame("Candidate Login"); //should change later
+		frame = new JFrame("Candidate Login"); 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane  = frame.getContentPane();
         frame.setSize(550,500);

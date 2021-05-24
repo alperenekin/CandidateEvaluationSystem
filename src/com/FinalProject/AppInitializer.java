@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class AppInitializer {
 
     public AppInitializer(){
-//       FileIO.instance().saveCandidatesToFile();
+//       FileIO.instance().saveCandidatesToFile();   //this methods are left with in case of initialization or corrupted files.
 //       FileIO.instance().saveTeamsToFile();
 //       FileIO.instance().saveJobAdvertToFile();
 

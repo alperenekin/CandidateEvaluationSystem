@@ -4,7 +4,7 @@ import com.FinalProject.FileIO;
 import com.FinalProject.model.JobAdvert.Position;
 
 /*
- * this is temproary factory method pattern creator . it probably replaced with more meaningfull name 
+ * this is  factory method pattern creator . 
  */
 public class CandidateCreator {
 	public CandidateCreator(){

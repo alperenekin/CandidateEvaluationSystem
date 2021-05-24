@@ -27,13 +27,11 @@ public class CandidateSignUpController {
 			System.out.println(view.getCandidateTypeComboBoxInput());
 			
 			String jobTitle = view.getJobTitleComboBoxInput();
-			//System.out.println(jobTitle);
 			JobAdvert job = findJobAdvertFromJobTitle(jobTitle);
 			String userName = view.getUserName();
 			String userSurname = view.getUserSurname();
 			String cv = view.getUserCv();
 			Candidate c = CandidateCreator.createCandidate(view.getCandidateTypeComboBoxInput(),userName,userSurname,cv);
-			//buraya job gömülebilir.
 			job.addCandidate(c);
 			popupCredentialsForCandidate(c);
 		}
