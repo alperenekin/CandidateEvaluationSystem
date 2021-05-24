@@ -14,6 +14,7 @@ public abstract class Candidate {
     private int compatibleness;
     private String cv;
     private String passwd;
+    private String userName;
 
     public Candidate(String name, String surname) {
         candidateId = AppUtill.candidateId;
@@ -30,7 +31,9 @@ public abstract class Candidate {
         this.surname = surname;
         applicationState = Starter.instance();
         this.cv = cv;
-        this.passwd=name+surname;
+        this.userName=name+surname;
+        this.passwd = this.userName;
+        
     }
 
     public void changeState(){
@@ -47,6 +50,9 @@ public abstract class Candidate {
 
     public String getName() {
         return name;
+    }
+    public String getUserName() {
+    	return userName;
     }
 
     public String getSurname() {

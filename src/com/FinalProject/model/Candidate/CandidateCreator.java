@@ -36,7 +36,7 @@ public class CandidateCreator {
 		
 	}
 	public static String[] getCandidateTypes() {
-		String[] candidateTypes = {"Mobile","Frontend","Web"};
+		String[] candidateTypes = {"Mobile","Web","Frontend"};
 		return candidateTypes;
 	}
 	

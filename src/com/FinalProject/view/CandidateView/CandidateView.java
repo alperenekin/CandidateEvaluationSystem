@@ -1,6 +1,7 @@
 package com.FinalProject.view.CandidateView;
 
 import com.FinalProject.model.JobAdvert.JobAdvert;
+import com.FinalProject.model.JobAdvert.Position;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.view.AppTheme;
 import com.FinalProject.view.TeamView.JobAdvertView;
@@ -27,8 +28,8 @@ public class CandidateView {
     private JobAdvertView panel;
     JPanel center;
     
-    public CandidateView(Candidate candidate,String[] candidateTypes) {
-    	this.candidateTypes = candidateTypes;
+    public CandidateView(Candidate candidate,String[] positions) {
+    	this.candidateTypes = positions;
     	createPanels();
         frame.setVisible(true);
         
@@ -179,12 +180,42 @@ public class CandidateView {
 	public String getJobTitleComboBoxInput() {
 		return (String) subAdvertComboBox.getSelectedItem();
 	}
-	public void addJobAdvertPanel(JobAdvert job) {
-		
+	public JobAdvertView addJobAdvertPanel(JobAdvert job) {
 		panel = new JobAdvertView(job,true);
 		GridBagConstraints grid = new GridBagConstraints();
 		grid.gridx = 1;
         grid.gridy = 6;
 		center.add(panel,grid);
+		return panel;
+	}
+	public void removeJobAdvertPanel(JobAdvertView oldJob) {
+		if(oldJob!= null) {
+			center.remove(oldJob);
+			center.repaint();
+		}
+		
+		
+	}
+	public void showCredentials(String userName, String passwd) {
+		// TODO Auto-generated method stub
+		JDialog d;
+		d = new JDialog();
+		JLabel success = new JLabel("Your Application is succesfull");
+		JLabel name =new JLabel("Username : "+ userName);
+		JLabel passwdd =new JLabel("Password : "+ passwd);
+
+		
+		success.setBounds(0, 0, 200, 20);
+        d.add(success);
+
+        name.setBounds(0, 50,200, 20);
+        d.add(name);
+        
+        passwdd.setBounds(0, 100,200, 20);
+        d.add(passwdd);		
+		
+		
+		d.setSize(300,300); 
+		d.setVisible(true);  
 	}
 }
