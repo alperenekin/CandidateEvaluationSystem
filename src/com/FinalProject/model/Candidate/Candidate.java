@@ -1,4 +1,4 @@
- package com.FinalProject.model.Candidate;
+package com.FinalProject.model.Candidate;
 
 import com.FinalProject.Utill.AppUtill;
 import com.FinalProject.model.States.BaseState;
@@ -32,9 +32,8 @@ public abstract class Candidate {
         applicationState = Starter.instance();
         this.cv = cv;
         this.userName=name+surname;
-        this.passwd = name+surname;
-        System.out.println(this.passwd+"******");
-        
+        this.passwd = this.userName;
+
     }
 
     public void changeState(){
@@ -94,5 +93,9 @@ public abstract class Candidate {
         setCompatibleness(0);
         setSoftSkills(0);
         setTechnicalSkills(0);
+    }
+
+    public String getCv() {
+        return cv;
     }
 }

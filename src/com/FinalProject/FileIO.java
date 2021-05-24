@@ -60,11 +60,25 @@ public class FileIO {
 //        ProjectManager manager = new ProjectManager("Ahmet","Yildirim");
 //        HumanResourceManager hrmanager = new HumanResourceManager(manager,"Ali","Yilmaz");
 //        HumanResourceAssistant assistant = new HumanResourceAssistant(hrmanager,"Veli","Acar");
-//        Team team = new Team("Software Team","software");
+//        Team team = new Team("Mobile Development","mobile");
 //        team.addEmployee(manager);
 //        team.addEmployee(hrmanager);
 //        team.addEmployee(assistant);
-//        teams.add(team);
+//        ProjectManager manager2 = new ProjectManager("Mustafa","Çakýr");
+//        HumanResourceManager hrmanager2 = new HumanResourceManager(manager,"Yakup","Özdemir");
+//        HumanResourceAssistant assistant2 = new HumanResourceAssistant(hrmanager,"Erhan","Aydýn");
+//        Team team2 = new Team("Web Development","web");
+//        team2.addEmployee(manager2);
+//        team2.addEmployee(hrmanager2);
+//        team2.addEmployee(assistant2);
+//        ProjectManager manager3 = new ProjectManager("Orhan","Çelik");
+//        HumanResourceManager hrmanager3 = new HumanResourceManager(manager,"Ali","Yýldýrým");
+//        HumanResourceAssistant assistant3 = new HumanResourceAssistant(hrmanager,"Melih","Öztürk");
+//        Team team3 = new Team("Frontend Development","frontend");
+//        team3.addEmployee(manager3);
+//        team3.addEmployee(hrmanager3);
+//        team3.addEmployee(assistant3);
+//        teams.add(team);teams.add(team2);teams.add(team3);
         try (Writer writer = new FileWriter("teams.json")){
             gson.toJson(teams, writer);
             writer.flush();

@@ -20,7 +20,7 @@ public class CandidateDetailView extends JDialog {
         JLabel nameSurname = new JLabel(candidate.getName() + " " + candidate.getSurname());
         nameSurname.setFont(AppTheme.instance().headerText());
         panel.add(nameSurname, BorderLayout.NORTH);
-        JTextArea cvText = new JTextArea("\n Buraya kullanicinin cvsi gelecek. Bu okuldan mezun bu bölümden mezun oldum, þuralarda çalýþtým tecrübelerim bunlar þeklidne");
+        JTextArea cvText = new JTextArea("\n" + candidate.getCv());
         cvText.setFont(AppTheme.instance().bodyTextFont());
         cvText.setEditable(false);
         cvText.setLineWrap(true);
