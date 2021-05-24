@@ -24,7 +24,9 @@ public abstract class Candidate {
         this.cv = "simdilik bos diger constructorda asl cv alan";
     }
     public Candidate(String name, String surname,String cv) {
-    	this.name = name;
+        candidateId = AppUtill.candidateId;
+        AppUtill.candidateId +=1;
+        this.name = name;
         this.surname = surname;
         applicationState = Starter.instance();
         this.cv = cv;
