@@ -1,7 +1,6 @@
 package com.FinalProject.model.Employees;
 
 import com.FinalProject.FileIO;
-import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
 public class HumanResourceAssistant extends Employee { //Should make a seperate class HumanResource maybe
@@ -13,7 +12,7 @@ public class HumanResourceAssistant extends Employee { //Should make a seperate 
     }
 
     @Override
-    public ReviewResult reviewCandidate(Candidate candidate) {
+    public void reviewCandidate(Candidate candidate) {
         int technicalSkill = candidate.getTechnicalSkills();
         int softSkill = candidate.getSoftSkills();
         int compatibleness = candidate.getCompatibleness();
@@ -25,8 +24,6 @@ public class HumanResourceAssistant extends Employee { //Should make a seperate 
             System.out.println("This candidate is eleminated");
         }
         FileIO.instance().saveCandidatesToFile();
-
-        return null;
     }
 
     public HumanResourceManager getSuccessor() {

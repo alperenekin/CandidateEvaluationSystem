@@ -35,8 +35,6 @@ public class LoginController {
             for(Team team : teams){
                 String teamName = team.getTeamName();
                 String teamPwd = team.getPassword();
-                String a = view.getUsername();
-                String b = view.getPassword();
                 if(teamName.equals(view.getUsername()) && teamPwd.equals(team.getPassword())){
                     teamToFind = team;
                     TeamView teamView = new TeamView(team);

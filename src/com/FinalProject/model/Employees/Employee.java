@@ -1,6 +1,5 @@
 package com.FinalProject.model.Employees;
 
-import com.FinalProject.model.ReviewResult;
 import com.FinalProject.model.Candidate.Candidate;
 
 public abstract class Employee {
@@ -12,7 +11,7 @@ public abstract class Employee {
     private String name;
     private String surname;
 
-    abstract ReviewResult reviewCandidate(Candidate candidate);
+    abstract void reviewCandidate(Candidate candidate);
 
     public String getName() {
         return name;
