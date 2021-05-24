@@ -1,6 +1,6 @@
 package com.FinalProject.view.CandidateView;
 
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.view.AppTheme;
 import com.FinalProject.view.TeamView.JobAdvertView;
@@ -38,6 +38,7 @@ public class CandidateView {
         frame = new JFrame("Candidate Screen"); //should change later
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         contentPane  = frame.getContentPane();
+        frame.setSize(550,500);
         
         SignUpButton = new JButton("Apply and SignUp");
         
@@ -176,7 +177,6 @@ public class CandidateView {
 		subAdvertComboBox.addActionListener(listener);
 	}
 	public String getJobTitleComboBoxInput() {
-		// TODO Auto-generated method stub
 		return (String) subAdvertComboBox.getSelectedItem();
 	}
 	public void addJobAdvertPanel(JobAdvert job) {

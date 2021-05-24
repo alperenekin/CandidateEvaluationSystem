@@ -8,11 +8,12 @@ import java.util.List;
 
 public class Team {
     private String teamName;
-
+    private String password;
     private List<Employee> employees;
 
-    public Team(String teamName){
+    public Team(String teamName, String password){
         this.teamName = teamName;
+        this.password = password;
         employees = new ArrayList<>();
     }
 
@@ -39,5 +40,9 @@ public class Team {
 
     public List<Employee> getEmployees() {
         return employees;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

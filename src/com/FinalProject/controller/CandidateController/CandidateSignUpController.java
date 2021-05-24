@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Candidate.CandidateCreator;
+import com.FinalProject.model.JobAdvert.Position;
 import com.FinalProject.view.CandidateView.CandidateView;
+import javafx.geometry.Pos;
 
 public class CandidateSignUpController {
 	private CandidateView view;
@@ -44,7 +46,6 @@ public class CandidateSignUpController {
 			String jobTitle = view.getJobTitleComboBoxInput();
 			JobAdvert job = findJobAdvertFromJobTitle(jobTitle);
 			view.addJobAdvertPanel(job);
-			
 		}
 		
 	}
@@ -73,17 +74,17 @@ public class CandidateSignUpController {
 	private ArrayList<JobAdvert> getRelatedAdverts(String comboBoxInput) {
 		ArrayList<JobAdvert> retList = new ArrayList<JobAdvert>();
 		for(JobAdvert job: this.jobs) {
-			if(comboBoxInput.equals((job.getPosition()))) {
+			if(Position.valueOf(comboBoxInput).equals(job.getPosition())) {
 				retList.add(job);
 			}
 		}
 		return retList;
 		
 	}
-	public JobAdvert findJobAdvertFromJobTitle(String position) {
+	public JobAdvert findJobAdvertFromJobTitle(String jobTitle) {
 		JobAdvert j= null;
 		for (JobAdvert job: jobs) {
-			if(job.getTitle().equals(position)) {
+			if(job.getTitle().equals(jobTitle)) {
 				j = job;
 			}
 		}

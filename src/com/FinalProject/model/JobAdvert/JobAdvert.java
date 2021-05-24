@@ -1,20 +1,21 @@
-package com.FinalProject.model;
+package com.FinalProject.model.JobAdvert;
 
 import java.util.ArrayList;
 
 import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
+import com.FinalProject.model.Team;
 
 public class JobAdvert {
     private Team team;
     private String title;
     private String description;
     private String requirements;
-    private String position;
+    private Position position;
     private boolean isActive;
     private ArrayList<Candidate> appliedCandidates;
 
-    public JobAdvert(Team team, String title, String description, String requirements, String position, boolean isActive) {
+    public JobAdvert(Team team, String title, String description, String requirements, Position position, boolean isActive) {
         this.team = team;
         this.title = title;
         this.description = description;
@@ -36,7 +37,7 @@ public class JobAdvert {
         return title;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
@@ -52,7 +53,6 @@ public class JobAdvert {
         return requirements;
     }
     public void addCandidate(Candidate candidate) {
-    	System.out.println("gelen candidate");
     	System.out.println(this.appliedCandidates.size());
     	this.appliedCandidates.add(candidate);
         FileIO.instance().saveJobAdvertToFile();

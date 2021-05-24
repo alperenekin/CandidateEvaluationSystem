@@ -4,9 +4,11 @@ import com.FinalProject.FileIO;
 import com.FinalProject.controller.EmployeeController.HumanResourceAssistantController;
 import com.FinalProject.model.Candidate.*;
 import com.FinalProject.model.Employees.HumanResourceAssistant;
+import com.FinalProject.model.JobAdvert.Position;
 import com.FinalProject.model.Team;
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.model.States.Certain;
+import com.FinalProject.view.CandidateView.CandidateDetailView;
 import com.FinalProject.view.TeamView.AddJobButton;
 import com.FinalProject.view.TeamView.EmployeeDialogView;
 import com.FinalProject.view.TeamView.JobAdvertView;
@@ -16,7 +18,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class TeamController {
     private Team team;
@@ -41,6 +42,7 @@ public class TeamController {
         HumanResourceAssistant assistant = team.findAssistant();
         view.addListenerToButton(view.getRateCandidateButton(),new RateCandidateListener(assistant));
         view.addListenerToButton(view.getPostAd(),new AddAdvertListener());
+        view.addListenerToButton(view.getSearchButton(), new SearchCandidateListener());
 
 
     }
@@ -62,6 +64,24 @@ public class TeamController {
             return null;
         }
     }
+
+    class SearchCandidateListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String input = showInputDialog();
+            if(input != null) {
+                int result =  Integer.parseInt(input);
+                candidate = pendingCandidates.stream().filter((Candidate c) -> c.getCandidateId() == result).findAny().orElse(null); //find candidate with given ID
+                if(candidate != null){
+                    CandidateDetailView detail = new CandidateDetailView(candidate,view.getFrame());
+                }else{
+                    JOptionPane.showMessageDialog(view.getFrame(),"Candidate can not be found","Alert",JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+    }
+
+
 
     class RateCandidateListener implements ActionListener{
         HumanResourceAssistant assistant;
@@ -115,7 +135,8 @@ public class TeamController {
                 String jobTitle = jobButton.getJobTitle();
                 String jobRequirement = jobButton.getReq();
                 String jobDescription = jobButton.getDesc();
-                JobAdvert job = new JobAdvert(team,jobTitle,jobDescription,jobRequirement,team.getTeamName(),true);
+                String position = jobButton.getPosition();
+                JobAdvert job = new JobAdvert(team,jobTitle,jobDescription,jobRequirement, Position.valueOf(position),true);
                 FileIO.instance().getAdverts().add(job);
                 FileIO.instance().saveJobAdvertToFile();
                 JobAdvertView jobView = new JobAdvertView(job,false);

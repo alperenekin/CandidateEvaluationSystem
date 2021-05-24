@@ -1,6 +1,6 @@
 package com.FinalProject.view.TeamView;
 
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.view.AppTheme;
 
 import javax.swing.*;

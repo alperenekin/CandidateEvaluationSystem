@@ -4,7 +4,7 @@ import com.FinalProject.FileIO;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Employees.Employee;
 import com.FinalProject.model.Team;
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.view.AppTheme;
 import com.FinalProject.view.CandidateView.CandidateTable;
 
@@ -24,6 +24,7 @@ public class TeamView {
     private JPanel tablesPanel;
 
     private Container contentPane;
+    private JButton searchButton;
     private JButton rateCandidateButton;
     private JButton  postAd;
 
@@ -94,7 +95,7 @@ public class TeamView {
         topPanel.add(Box.createHorizontalStrut(10));
         topPanel.add(nameSurname);
 
-        JButton searchButton = new JButton("<html>Search Candidate <br> From List</html>"); //Make it show candidate details?
+        searchButton = new JButton("<html>Search Candidate <br> From List</html>"); //Make it show candidate details?
         searchButton.setBackground(AppTheme.instance().buttonColor()); //singleton
         searchButton.setForeground(Color.white);
         searchButton.setFont(AppTheme.instance().bodyTextFont());
@@ -186,6 +187,10 @@ public class TeamView {
 
     public JButton getPostAd() {
         return postAd;
+    }
+
+    public JButton getSearchButton() {
+        return searchButton;
     }
 
     public JPanel getTablesPanel() {

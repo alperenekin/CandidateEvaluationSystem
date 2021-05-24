@@ -11,7 +11,7 @@ public class LoginView extends JFrame {
     private JTextField password;
     private JButton loginButton;
     private JButton switchCandidateLoginButton;
-     private JButton startWithoutLogin;
+    private JButton startWithoutLogin;
 
 
     public LoginView(){
@@ -96,11 +96,15 @@ public class LoginView extends JFrame {
         return password.getText();
     }
 
-    public void dispose(){
+    public void disposeFrame(){
         this.dispose();
     }
     public void addListenerToButton(JButton button, ActionListener listener){
         button.addActionListener(listener);
+    }
+
+    public JFrame getFrame(){
+        return this;
     }
 
 }

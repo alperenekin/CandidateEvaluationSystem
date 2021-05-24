@@ -3,15 +3,16 @@ package com.FinalProject;
 import com.FinalProject.Utill.AppUtill;
 import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Team;
-import com.FinalProject.model.JobAdvert;
-
-import java.util.ArrayList;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 
 public class AppInitializer {
 
     public AppInitializer(){
+//       FileIO.instance().saveCandidatesToFile();
+//       FileIO.instance().saveTeamsToFile();
+//       FileIO.instance().saveJobAdvertToFile();
+
         FileIO.instance().readTeamsFromFile();
-        //FileIO.instance().saveJobAdvertToFile();
         FileIO.instance().readCandidatesFromFile();
         FileIO.instance().readJobAdvertsFromFile();
 

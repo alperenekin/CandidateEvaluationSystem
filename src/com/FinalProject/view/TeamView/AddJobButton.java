@@ -12,6 +12,7 @@ public class AddJobButton extends JDialog{
         private JTextField title;
         private JTextField desc;
         private JTextField req;
+        private JComboBox positions;
 
         public AddJobButton(String dialogMessage,String boxName, JFrame frame){
             super(frame,boxName);
@@ -37,8 +38,11 @@ public class AddJobButton extends JDialog{
             JLabel description = new JLabel("Description : ");
             desc = new JTextField(20);
             JLabel requirements = new JLabel("Requirements : ");
-
             req = new JTextField(20);
+            JLabel jobPosition = new JLabel("Title : ");
+            positions= new JComboBox(new String[]{"Mobile", "Frontend", "Web"});
+
+
             confirmButton = new JButton("Confirm");
             confirmButton.setBackground(AppTheme.instance().buttonColor());
             confirmButton.setForeground(Color.white);
@@ -69,6 +73,14 @@ public class AddJobButton extends JDialog{
             grid.gridx = 1;
             grid.gridy = 2;
             center.add(req,grid);
+
+            grid.gridx = 0;
+            grid.gridy = 3;
+            center.add(jobPosition,grid);
+
+            grid.gridx = 1;
+            grid.gridy = 3;
+            center.add(positions,grid);
             panel.add(center,BorderLayout.CENTER);
             panel.add(confirmButton,BorderLayout.SOUTH);
 
@@ -94,6 +106,11 @@ public class AddJobButton extends JDialog{
 
         public String getReq() {
             return req.getText();
+        }
+
+        public String getPosition() {
+            return (String) positions.getSelectedItem();
+
         }
 
 }

@@ -5,7 +5,8 @@ import com.FinalProject.model.Candidate.Candidate;
 import com.FinalProject.model.Candidate.CandidateAdapter;
 import com.FinalProject.model.Candidate.MobileCandidate;
 import com.FinalProject.model.Employees.*;
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.model.JobAdvert.JobAdvert;
+import com.FinalProject.model.JobAdvert.Position;
 import com.FinalProject.model.States.BaseState;
 import com.FinalProject.model.States.StateAdapter;
 import com.FinalProject.model.Team;
@@ -31,6 +32,7 @@ public class FileIO {
     private ArrayList<JobAdvert> adverts;
     private ArrayList<Candidate> candidates;
 
+
     private FileIO() {
         gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Employee.class, new EmployeeAdapter()); //Adapters for seralizing and deserializing are added
@@ -54,15 +56,15 @@ public class FileIO {
     }
 
     public void saveTeamsToFile(){
-        teams = new ArrayList<>();
-        ProjectManager manager = new ProjectManager("Ahmet","Yildirim");
-        HumanResourceManager hrmanager = new HumanResourceManager(manager,"Ali","Yilmaz");
-        HumanResourceAssistant assistant = new HumanResourceAssistant(hrmanager,"Veli","Acar");
-        Team team = new Team("Software Team");
-        team.addEmployee(manager);
-        team.addEmployee(hrmanager);
-        team.addEmployee(assistant);
-        teams.add(team);
+//        teams = new ArrayList<>();
+//        ProjectManager manager = new ProjectManager("Ahmet","Yildirim");
+//        HumanResourceManager hrmanager = new HumanResourceManager(manager,"Ali","Yilmaz");
+//        HumanResourceAssistant assistant = new HumanResourceAssistant(hrmanager,"Veli","Acar");
+//        Team team = new Team("Software Team","software");
+//        team.addEmployee(manager);
+//        team.addEmployee(hrmanager);
+//        team.addEmployee(assistant);
+//        teams.add(team);
         try (Writer writer = new FileWriter("teams.json")){
             gson.toJson(teams, writer);
             writer.flush();
@@ -83,9 +85,9 @@ public class FileIO {
     }
 
     public void saveJobAdvertToFile(){
-    /*	adverts = new ArrayList<>();
-        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa","mobileDev",true );
-        adverts.add(advert);*/
+//    	adverts = new ArrayList<>();
+//        JobAdvert advert = new JobAdvert(teams.get(0),"Mobile Dev","Junior mobile developer is needed","Graduated from computer engineering, at least 3 gpa", Position.Mobile,true );
+//        adverts.add(advert);
         try (Writer writer = new FileWriter("jobadverts.json")){
             gson.toJson(adverts, writer);
             writer.flush();
@@ -105,11 +107,11 @@ public class FileIO {
     }
 
     public void saveCandidatesToFile(){
-//        candidates = new ArrayList<>();
-//        MobileCandidate candidate1 = new MobileCandidate("alperen","ekin");
-//        MobileCandidate candidate2 = new MobileCandidate("ekin","tepebas");
-//        MobileCandidate candidate3 = new MobileCandidate("ahmet","yilmaz");
-//        candidates.add(candidate1); candidates.add(candidate2); candidates.add(candidate3);
+//       candidates = new ArrayList<>();
+//       MobileCandidate candidate1 = new MobileCandidate("Alperen","Ekin");
+//       MobileCandidate candidate2 = new MobileCandidate("Ekin","Tepebas");
+//       MobileCandidate candidate3 = new MobileCandidate("Ahmet","Yilmaz");
+//       candidates.add(candidate1); candidates.add(candidate2); candidates.add(candidate3);
         try (Writer writer = new FileWriter("candidates.json")){
             Type candidateType = new TypeToken<ArrayList<Candidate>>() {}.getType();// In order to parse for User Type.
             String jsonString = gson.toJson(candidates, candidateType);

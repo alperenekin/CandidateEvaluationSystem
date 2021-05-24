@@ -1,16 +1,12 @@
 package com.FinalProject;
 
-import com.FinalProject.controller.CandidateController.CandidateSignUpController;
-import com.FinalProject.controller.TeamController.TeamController;
-import com.FinalProject.model.JobAdvert;
+import com.FinalProject.controller.LoginController.LoginController;
+import com.FinalProject.model.JobAdvert.JobAdvert;
 import com.FinalProject.model.Team;
 import com.FinalProject.model.Candidate.Candidate;
-import com.FinalProject.model.Candidate.CandidateCreator;
-import com.FinalProject.view.CandidateView.CandidateView;
-import com.FinalProject.view.TeamView.TeamView;
+import com.FinalProject.view.LoginView.LoginView;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
@@ -42,12 +38,14 @@ public class Main {
                 ArrayList<JobAdvert> c = FileIO.instance().getAdverts();
                 //System.out.println(c.get(0).getPosition());
 
-                TeamView view = new TeamView(FileIO.instance().getTeams().get(0));
-                TeamController controller = new TeamController(FileIO.instance().getTeams().get(0),view);
-                String[] den = CandidateCreator.getCandidateTypes();
-                System.out.println(den.length);
-                CandidateView candidateView = new CandidateView(null,den);
-                CandidateSignUpController candidateSignUpController = new CandidateSignUpController(c, candidateView);
+                LoginView loginView = new LoginView();
+                LoginController loginController = new LoginController(loginView);
+//                TeamView view = new TeamView(FileIO.instance().getTeams().get(0));
+//                TeamController controller = new TeamController(FileIO.instance().getTeams().get(0),view);
+//                String[] den = CandidateCreator.getCandidateTypes();
+//                System.out.println(den.length);
+//                CandidateView candidateView = new CandidateView(null,den);
+//                CandidateSignUpController candidateSignUpController = new CandidateSignUpController(c, candidateView);
 
             }
         });
