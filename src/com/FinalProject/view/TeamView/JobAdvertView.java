@@ -22,6 +22,7 @@ public class JobAdvertView extends JPanel {
         this.setPreferredSize(new Dimension(300,240));
         JLabel title = new JLabel(jobAdvert.getTitle());
         title.setFont(AppTheme.instance().headerText());
+        title.setForeground(Color.ORANGE);
         title.setHorizontalAlignment(SwingConstants.CENTER);
         this.add(title, BorderLayout.NORTH);
         Box box = Box.createVerticalBox();

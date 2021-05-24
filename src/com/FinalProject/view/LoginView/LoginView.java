@@ -21,14 +21,12 @@ public class LoginView extends JFrame {
 
     private void showLoginFields(){
         JPanel center = new JPanel(new GridBagLayout());
-        center.setBackground(AppTheme.instance().mainBackGroundColor());
+        center.setBackground(AppTheme.instance().secondaryBackground());
         GridBagConstraints grid = new GridBagConstraints();
         username = new JTextField(20);
         JLabel usernameLabel = new JLabel("Username");
-        usernameLabel.setForeground(Color.white);
         password = new JPasswordField(20);
         JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setForeground(Color.white);
         loginButton = new JButton("Login as Team");
         loginButton.setBackground(AppTheme.instance().buttonColor());
         loginButton.setForeground(Color.white);
